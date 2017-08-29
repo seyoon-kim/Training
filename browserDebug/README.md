@@ -155,3 +155,18 @@
 <img width="" height="" src="https://mdn.mozillademos.org/files/13210/debugger-events-pane-annotated.png"></img>
 
 # Mobile 브라우저별 디버깅 도구 소개
+
+## Chrome remote Debugging
+
+### 안드로이드 PC 연결 순서
+1. 안드로이드에서 크롬을 설치한다.
+2. USB로 PC에 연결한다.
+3. 안드로이드 환경설정에서 개발자옵션을 켜고, USB디버깅을 활성화
+4. PC에 설치된 크롬에서 기기를 찾는다. (PC의 크롬을 실행한 후 주소창에 chrome://inspect 입력)
+
+### DevTools에서 WebView 열기
+
+- chrome://inspect 페이지는 기기에 디버그 지원 WebView 목록을 표시한다.
+- 디버깅을 시작하려면 디버그하려는 WebView 아래에서 inspect를 클릭 후 원격 브라우저 탭에서와 마찬가지로 DevTools를 사용한다.
+
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/imgs/webview-debugging.png?hl=ko"></img>
