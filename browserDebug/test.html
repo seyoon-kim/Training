@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Title of the document</title>
+</head>
+
+<body>
+The content of the document......
+
+<p id="hi" style="background-color:red">HI</p>
+</body>
+
+<script type="text/javascript">
+var x = 5;
+
+function test01(){
+	for(x; x < 10; x++){
+		console.log(x);
+	}
+}
+
+function test02(){
+	var i = 0;
+	for(i; i < 10; i++){
+		console.log(i);
+	}
+}
+
+test01();
+test02();
+
+document.addEventListener("click", function(){
+	console.log("a");
+})
+
+</script>
+
+</html>
