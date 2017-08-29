@@ -3,6 +3,8 @@
 
 # PC 브라우저별 디버깅 도구 소개
 
+- PC버전의 브라우저 IE, Chrome, Firefox의 디버깅 도구를 알아본다.
+
 ## IE 
 
 ### 도구 열기
@@ -14,18 +16,18 @@
 - 대부분의 보기에서 특성과 변수를 클릭하여 값 변경 가능
 - 특정 태그, ID, 요소, 변수 또는 문자열을 검색 상자에 입력하여 해당항목을 찾을수 있음
 
-<img width="300px" height="400px" src="https://i-msdn.sec.s-msft.com/dynimg/IC627574.png"></img>
+<img width="" height="" src="https://i-msdn.sec.s-msft.com/dynimg/IC627574.png"></img>
 
 - 항목을 여러개 찾은 경우 Enter 또는 Shift + Enter를 누르거나 다음 또는 이전 단추를 클릭하여 항목 이동 가능
 - 디버깅 창에서 해당 요소를 클릭하거나 Ctr+B를 눌러서 페이지 마우스 커서를 올려 놓으면 해당 요소 테두리 생성
 
-<img width="300px" height="400px" src="https://i-msdn.sec.s-msft.com/dynimg/IC654501.png"></img>
+<img width="" height="" src="https://i-msdn.sec.s-msft.com/dynimg/IC654501.png"></img>
 
 ### 콘솔을 사용하여 오류 및 상태 보기
 
 - 콘솔이 열려 있으면 코드에 오류가 생기는 경우 오류 내용 확인 가능
 
-<img width="300px" height="400px" src="https://i-msdn.sec.s-msft.com/dynimg/IC654522.png"></img>
+<img width="" height="" src="https://i-msdn.sec.s-msft.com/dynimg/IC654522.png"></img>
 
 - 코드에서 콘솔 객체를 사용하여 사용자가 원하는 메시지를 생성 할 수 있다.
 
@@ -48,7 +50,7 @@
 
 - 콘솔 탭의 맨 하단에서 콘솔 명령 또는 스크립트 문을 실행 가능
 
-<img width="300px" height="400px" src="https://i-msdn.sec.s-msft.com/dynimg/IC627622.png"></img>
+<img width="" height="" src="https://i-msdn.sec.s-msft.com/dynimg/IC627622.png"></img>
 
 ### JavaScript 오류 디버그 탭
 
@@ -69,7 +71,7 @@
 ### 호출 스택
 - 호출 스택 탭에서는 함수가 코드에서 호출될 때 거치는 경로를 볼 수 있음.
 
-<img width="300px" height="400px" src="https://i-msdn.sec.s-msft.com/dynimg/IC627565.png"></img>
+<img width="" height="" src="https://i-msdn.sec.s-msft.com/dynimg/IC627565.png"></img>
 
 ### 이전버전 환경 테스트
 - 도구탭의 우측 상단의 문서모드 설정을 통하여 IE 이전버전 환경에서 스크립트를 테스트 할 수 있음.
@@ -92,7 +94,7 @@
 - Event Listener Breakpoints를 클릭하여 섹션에서 원하는 이벤트를 클릭하여 설정한다. 그 후 해당 이벤트를 실행하면 해당하는 이벤트 핸들러의 첫줄에서
 자동으로 일시 중지한다.
 
-<img width="300px" height="400px" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/dom-change-breakpoint.png?hl=ko"></img>
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/dom-change-breakpoint.png?hl=ko"></img>
 
 ### DOM change 브레이크 포인트
 
@@ -102,20 +104,20 @@
 - Attributes modifications, 선택되어진 엘리멘트의 속성이 변경되거나 추가, value값이 변경된 경우 중단
 - Node Removal, 선택되어진 엘리멘트가 삭제된 경우 중단
 
-<img width="300px" height="400px" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/event-listener-breakpoint.png?hl=ko"></img>
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/event-listener-breakpoint.png?hl=ko"></img>
 
 ### XHR 브레이크 포인트
 
 - XHR의 URL이 특정 문자열과 일치할 때 중단하려면 Sources 패널의 XHR Breakpoints 창을 사용한다.
 
-<img width="300px" height="400px" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/xhr-breakpoint.png?hl=ko"></img>
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/xhr-breakpoint.png?hl=ko"></img>
 
 ### 예외 브레이크 포인트
 
 - 예외가 발생한 경우 중단 시키도록 한다.
 - Pause on exceptions 버튼 클릭 후 파란색 일 경우 예외 중단 설정
 
-<img width="300px" height="400px" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/uncaught-exception.png?hl=ko"></img>
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/uncaught-exception.png?hl=ko"></img>
 
 
 ### 변수값 확인
@@ -123,10 +125,10 @@
 - Watch Expression을 사용하여 시간에 따라 변수 값을 모니터링 가능
 - Sources 패널에서 Watch를 클릭, Add Expression을 클릭하여 원하는 변수명을 입력 하면 해당 변수가 변화하는 모습을 볼 수 있음.
 
-<img width="300px" height="400px" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/get-started-watch-expression.png?hl=ko"></img>
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/get-started-watch-expression.png?hl=ko"></img>
 - Console 탭에서 원하는 변수명을 입력하면 그시점의 변수값을 표시
 
-<img width="300px" height="400px" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/get-started-console.png?hl=ko"></img>
+<img width="" height="" src="https://developers.google.com/web/tools/chrome-devtools/javascript/imgs/get-started-console.png?hl=ko"></img>
 
 ## Firefox
 
@@ -143,13 +145,13 @@
 - Step out 버튼(Shift + F11) 현재 함수를 탈출 한다.
 - 조건부 브레이크 포인트의 경우 속성이나 변수가 특정 값에 도달할 때 중단할 수 있도록 합니다. 사용방법은 중단점 탭을 연 후 마우스 오른쪽 단추로 클릭하고 조건을 클릭 한 후 조건물을 추가하고 조건이 맞을 경우에 중단 발생
 
-<img width="300px" height="400px" src="https://mdn.mozillademos.org/files/14404/debugger-stepping.png"></img>
+<img width="" height="" src="https://mdn.mozillademos.org/files/14404/debugger-stepping.png"></img>
 
 
 ### DOM 이벤트 브레이크 포인트
 
 - 이벤트 패널을 오픈한 후 DOM과 관련된 이벤트 중 원하는 이벤트를 체크 한 뒤 실행 시키면 해당 이벤트 발생시 코드를 중단한다.
 
-<img width="300px" height="400px" src="https://mdn.mozillademos.org/files/13210/debugger-events-pane-annotated.png"></img>
+<img width="" height="" src="https://mdn.mozillademos.org/files/13210/debugger-events-pane-annotated.png"></img>
 
 # Mobile 브라우저별 디버깅 도구 소개
