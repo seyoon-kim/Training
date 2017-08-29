@@ -173,7 +173,7 @@
 
 
 ## 참고자료
-<a href="https://msdn.microsoft.com/ko-kr/library/gg699336(v=vs.85).aspx">IE</a>
-<a href="https://developers.google.com/web/tools/chrome-devtools/javascript/?hl=ko">Chrome</a>
-<a href="https://developer.mozilla.org/ko/docs/%EB%8F%84%EA%B5%AC%EB%93%A4/Debugger">Firefox</a>
-<a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?hl=ko">Chrome remote Debugging</a>
+- <a href="https://msdn.microsoft.com/ko-kr/library/gg699336(v=vs.85).aspx">IE</a>
+- <a href="https://developers.google.com/web/tools/chrome-devtools/javascript/?hl=ko">Chrome</a>
+- <a href="https://developer.mozilla.org/ko/docs/%EB%8F%84%EA%B5%AC%EB%93%A4/Debugger">Firefox</a>
+- <a href="https://developers.google.com/web/tools/chrome-devtools/remote-debugging/?hl=ko">Chrome remote Debugging</a>
