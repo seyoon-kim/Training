@@ -1,0 +1,2935 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel="shortcut icon" type="image/x-icon" href="http://static.nhnent.com/static/site/whatsup/resources_ent/favicon.ico?ver=20150118" />
+		<!-- 120625 : viewport 1080px로 설정 -->
+	<meta name="viewport" content="width=1080px">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+	<title>WhatsUP</title>
+
+
+
+	<!-- Main CSS -->	
+	<link rel="stylesheet" type="text/css" href="http://static.nhnent.com/static/site/whatsup/resources_ent/css/connect_ent.css?ver=20150118">
+				<!-- 자바스크립트에서 사용하는 Locale 정보 -->
+	<script type="text/javascript">
+		var g_connectLocaleMsg ="ko";
+		</script>
+
+
+	<!-- JS 다국어 메시지 (사용자) -->
+	<script type="text/javascript">
+		var g_arrConnectUserMsg = new Array();	
+		
+			g_arrConnectUserMsg["js.board.delete"] = "삭제";
+		
+			g_arrConnectUserMsg["lang.cn"] = "중국어";
+		
+			g_arrConnectUserMsg["js.board.title.guide2"] = "제목은 {0} 글자 이내 이어야 합니다.";
+		
+			g_arrConnectUserMsg["js.board.title.guide1"] = "제목을 입력해주세요.";
+		
+			g_arrConnectUserMsg["js.survey.system.error"] = "시스템 오류입니다. 담당자에게 확인 부탁드립니다.";
+		
+			g_arrConnectUserMsg["ajax.mail.nomail"] = "메일이 없습니다.";
+		
+			g_arrConnectUserMsg["js.mySettings.alert1"] = "MyDesk 타입을 선택해 주세요.";
+		
+			g_arrConnectUserMsg["js.survey.notselect.duplicate"] = "중복된 순위는 선택할 수 없습니다.";
+		
+			g_arrConnectUserMsg["common.sec3333.call"] = "물리보안 3333으로 전화를 거시겠습니까?";
+		
+			g_arrConnectUserMsg["js.survey.etc.input.validate"] = "항목의 기타내용을 입력해 주세요.";
+		
+			g_arrConnectUserMsg["js.survey.copy"] = "본 설문을 Copy 하시겠습니까?";
+		
+			g_arrConnectUserMsg["js.survey.input.validate"] = "항목에 답해주세요.";
+		
+			g_arrConnectUserMsg["js.mySettings.alert2"] = "게시판을 선택해 주세요.";
+		
+			g_arrConnectUserMsg["common.2580.not.iptphone"] = "IPT폰 사용자가 아닙니다.";
+		
+			g_arrConnectUserMsg["lang.CHN"] = "중국어";
+		
+			g_arrConnectUserMsg["lang.ko"] = "한국어";
+		
+			g_arrConnectUserMsg["js.board.tempsave.guide1"] = "임시저장은 5개까지 가능합니다!";
+		
+			g_arrConnectUserMsg["js.myjob.edit.complete"] = "수정이 완료되었습니다.";
+		
+			g_arrConnectUserMsg["common.2580.systen.error"] = "시스템 오류입니다. 담당자에게 문의하세요.";
+		
+			g_arrConnectUserMsg["js.myjob.data.error"] = "수신 데이터에 오류가 발생하였습니다.";
+		
+			g_arrConnectUserMsg["js.mySettings.reset.qustion"] = "RESET 하시겠습니까?";
+		
+			g_arrConnectUserMsg["js.survey.min"] = "최소 {0}개 이상 선택 해야합니다.";
+		
+			g_arrConnectUserMsg["lang.JPL"] = "일본어";
+		
+			g_arrConnectUserMsg["js.board.service.guide1"] = "서비스를 선택해주세요.";
+		
+			g_arrConnectUserMsg["js.survey.max"] = "최대 {0}개까지 선택 가능합니다.";
+		
+			g_arrConnectUserMsg["lang.select"] = "언어 선택";
+		
+			g_arrConnectUserMsg["js.knock.article.save.temp"] = "최대 임시저장 목록 수를 초과하였습니다.";
+		
+			g_arrConnectUserMsg["js.board.period.startdate.select"] = "기간 시작일을 선택해 주세요";
+		
+			g_arrConnectUserMsg["js.survey.sum.validate"] = "입력의 합이 100이 되어야 합니다.";
+		
+			g_arrConnectUserMsg["common.sec2248.call"] = "보안담당으로 전화를 거시겠습니까?";
+		
+			g_arrConnectUserMsg["lang.jp"] = "일본어";
+		
+			g_arrConnectUserMsg["common.2580.cancel"] = "취소되었습니다.";
+		
+			g_arrConnectUserMsg["js.knock.check.secret"] = "비밀번호를 입력해 주세요.";
+		
+			g_arrConnectUserMsg["js.myjob.info.alert"] = "담당업무를 구체적으로 작성하여 주시기 바랍니다.";
+		
+			g_arrConnectUserMsg["lang.en"] = "영어";
+		
+			g_arrConnectUserMsg["js.board.head.guide1"] = "말머리를 선택해 주세요.";
+		
+			g_arrConnectUserMsg["ajax.mail.info.notdisplay"] = "메일 정보를 표시할 수 없습니다.";
+		
+			g_arrConnectUserMsg["ajax.mail.api.fail"] = "API 호출에 실패하였습니다.";
+		
+			g_arrConnectUserMsg["js.board.contents.guide1"] = "내용을 입력해주세요.";
+		
+			g_arrConnectUserMsg["js.board.edit.guide2"] = "32KB 를 넘는 이미지를 클립보드에서 붙여넣기를 한 경우\\nIE 8 이하 버전에서 볼 수 없습니다.\\n붉은 테두리로 표시된 이미지를 삭제한 후\\n이미지 첨부 기능을 이용해서 이미지를 넣어 주세요.";
+		
+			g_arrConnectUserMsg["js.board.edit.guide1"] = "클립보드에서 붙여넣기 한 이미지나\\nNCS 메일에서 붙여넣기 한 이미지는 사용이 불가능합니다.\\n붉은 테두리로 표시된 이미지를 삭제한 후 저장 해 주세요.";
+		
+			g_arrConnectUserMsg["lang.KOR"] = "한국어";
+		
+			g_arrConnectUserMsg["lang.ENG"] = "영어";
+		
+			g_arrConnectUserMsg["js.survey.notinput"] = "항목에 답하지 않았습니다.";
+		
+			g_arrConnectUserMsg["js.board.add.file.guide1"] = "첨부 가능한 파일 수는 10개 입니다.";
+		
+			g_arrConnectUserMsg["js.board.period.enddate.select"] = "기간 종료일을 선택해 주세요";
+		
+			g_arrConnectUserMsg["js.knock.check.secret.incorrect"] = "잘못된 비밀번호 입니다.";
+		
+			g_arrConnectUserMsg["js.board.startdate.notcorrect"] = "기간 시작일이 종료일보더 전이여야 합니다.";
+		
+			g_arrConnectUserMsg["js.board.pagecount.error"] = "페이지당 게시글 개수 조절에 실패하였습니다.";
+		
+			g_arrConnectUserMsg["js.board.fail"] = "실패";
+		
+			g_arrConnectUserMsg["js.myjob.save.error"] = "저장에 실패하였습니다.";
+		
+			g_arrConnectUserMsg["common.2580.calling"] = "통화중입니다.";
+		
+			g_arrConnectUserMsg["ajax.mail.select"] = "메일을 선택해주세요.";
+		
+			g_arrConnectUserMsg["common.2580.call"] = "2580으로 전화를 거시겠습니까?";
+		
+			g_arrConnectUserMsg["ajax.mail.noinfo"] = "메일 정보가 존재하지 않습니다.";
+		</script>
+
+	
+	<!-- jQuery -->
+	<script type="text/javascript" src="http://static.nhnent.com/static/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript">
+		var j$ = jQuery.noConflict();
+	</script>
+	
+		
+	<!-- Page Head Tag -->
+	</head>
+
+
+<body>
+
+	<div id="wrap">
+
+	    <div id="header">
+
+			<link rel="stylesheet" type="text/css" href="HTTP://static.nhnent.com/static/site/wgnb/resources_ent/css/gnb_ent.css?ver=20170703">
+					<link rel="stylesheet" type="text/css" href="HTTP://static.nhnent.com/static/site/wgnb/siteTheme_ent/css/connect_theme.css?ver=20170703">
+
+			<script type="text/javascript" src="HTTP://static.nhnent.com/static/site/wgnb/resources/js/gnbCommon.js?ver=20170703"></script>
+
+
+
+
+
+
+
+		<style type="text/css">
+				.prmrcnt_g065_hide {
+				    display: none !important;
+				}
+			</style>
+		
+		
+		
+			<!-- GNB bar 테마 적용 (네이버만 제공) -->
+			<div class="prmrcnt_g065_gnb_wrap">
+						<div class="prmrcnt_g065_gnb_flex">
+   
+         <input type="hidden" name="GNB-url" id="GNB-url" value="http://whatsup.nhnent.com/extraGnb/gnb/pagelet/addBookmark" />         
+         <input type="hidden" name="GNB-sortOrder" id="GNB-sortOrder" value="" />
+         
+         
+         
+         <div class="prmrcnt_g065_lnb">
+	    	
+	    	 
+	    	 <div class="prmrcnt_g065_lnb_menu">
+	    	
+	    		<div  class="prmrcnt_g065_frst">
+					<a href="http://whatsup.nhnent.com">What's UP</a> 
+					    <a href="javascript:void(0)" id="btn_gnbLayer_connectList"  class='prmrcnt_g065_cnt_more '>
+					    	<span class="blind">CONNECT목록</span>
+					    </a>
+				    </div>
+				
+				<div class="prmrcnt_g065_lnb_lst">
+					<ul class="prmrcnt_g065_group_not_dnd">
+					    	</ul>
+					    
+					    <ul class="prmrcnt_g065_group_dnd" id="GNB-sortable-list">
+					   		<li id="myInternalSiteItems723" title="87
+1ff8
+864" onmouseover="internalSiteListOver(this);" onmouseout="internalSiteListOut(this);">
+					    			<span class="prmrcnt_g065_bu_drag"><span class="blind">위치변경</span></span>
+					    			<a href="javascript:fnGnbLeftClickAction('INTERNAL', 'http://bip.nhnent.com/', '723');">BIP</a>
+					    		</li>
+				    		<li id="myInternalSiteItems756" title="87865" onmouseover="internalSiteListOver(this);" onmouseout="internalSiteListOut(this);">
+					    			<span class="prmrcnt_g065_bu_drag"><span class="blind">위치변경</span></span>
+					    			<a href="javascript:fnGnbLeftClickAction('INTERNAL', 'http://whatsup.nhnent.com/ey', '756');">EasyS(정보보호포털)</a>
+					    		</li>
+				    		<li id="myInternalSiteItems745" title="87866" onmouseover="internalSiteListOver(this);" onmouseout="internalSiteListOut(this);">
+					    			<span class="prmrcnt_g065_bu_drag"><span class="blind">위치변경</span></span>
+					    			<a href="javascript:fnGnbLeftClickAction('INTERNAL', 'https://nharmony.nhnent.com', '745');">Harmony</a>
+					    		</li>
+				    		<li id="myInternalSiteItems717" title="87867" onmouseover="internalSiteListOver(this);" onmouseout="internalSiteListOut(this);">
+					    			<span class="prmrcnt_g065_bu_drag"><span class="blind">위치변경</span></span>
+					    			<a href="javascript:fnGnbLeftClickAction('INTERNAL', 'http://iims2.nhnent.com/adminPM/Main.nhn', '717');">IIMS2</a>
+					    		</li>
+				    		<li id="myInternalSiteItems1176" title="87868" onmouseover="internalSiteListOver(this);" onmouseout="internalSiteListOut(this);">
+					    			<span class="prmrcnt_g065_bu_drag"><span class="blind">위치변경</span></span>
+					    			<a href="javascript:fnGnbLeftClickAction('INTERNAL', 'http://tips.nhnent.com', '1176');">Tips</a>
+					    		</li>
+				    		</ul>
+					    
+					    <!-- 더보기버튼 -->
+				    	<span class="prmrcnt_g065_lnb_more">
+				    		<a href="javascript:void(0)" id="btn_gnbLayer_myBookMark">더보기</a>
+				    	</span>
+			    	
+			    	</div>
+				
+	        </div>
+	       
+	       
+	        <div class="prmrcnt_g065_ly prmrcnt_g065_ly_cnt" id="connectListDiv" style="display:none;" gnbPopupLayer="true">
+				<ul>
+				    <li><a href='http://whatsup.nhnent.com/ne'>NHNENT</a></li>
+					<li><a href='http://whatsup.nhnent.com/ey'>EasyS</a></li>
+					</ul>
+			</div>
+
+
+			<div class="prmrcnt_g065_ly_lnb" id="bookMarkDiv" style="width:360px;display:none;" gnbPopupLayer="true">
+				
+				<!-- 사내시스템 Layer -->
+				<div class="prmrcnt_g065_ly_more">
+					
+					<!-- 사내시스템 Title -->
+					<div class="prmrcnt_g065_top_area">
+						<strong class="prmrcnt_g065_tit">전체 사내정보시스템</strong>
+						<a href="javascript:addGnbMyBookMark();" class="prmrcnt_g065_btn_fav">즐겨찾기 추가</a>
+						<a href="javascript:closeBookMarkDiv();" class="prmrcnt_g065_btn_clse"><span class="blind">닫기</span></a>
+					</div>
+					
+					<!-- 사내시스템 Contents -->
+					<div class="prmrcnt_g065_cont_area" id="bookMarkDivContents"></div>
+				
+				</div>
+								
+				<!-- 즐겨찾기 편집 Layer -->
+				<div class="prmrcnt_g065_ly prmrcnt_g065_ly_fav" id="addBookmarkDiv"></div>
+				
+				<!-- 사내시스템 설명 Layer -->
+				<div class="prmrcnt_g065_ly prmrcnt_g065_ly_dsc" id="bookmarkDesDiv"></div>
+			</div>
+			
+			
+		 </div>
+		 
+
+
+
+
+         <div class="prmrcnt_g065_gnb" id="gnbExternalArea">
+             
+             <div class="prmrcnt_g065_log">
+         	 	
+         	 	<a href="#" onClick="fnConnectOpenMySettings('http://whatsup.nhnent.com/settings/');" class="prmrcnt_g065_log_user">김세윤</a>
+                
+                <a href="#" class="prmrcnt_g065_log_btn" onClick="fnLogOut('http://whatsup.nhnent.com/sso/logout');">
+		                	<span class="blind">로그아웃</span>
+		                </a>
+ 	                </div>
+                         
+             <ul class="prmrcnt_g065_gnb_lst">
+
+				<li class="prmrcnt_g065_mail">
+                	<a href="javascript:fnGnbRightClickAction('LINK', 'NEW_WINDOW', 'http://mail.nhnent.com/', 'mail');" class="prmrcnt_g065_thumb " title="메일">
+                		<span class="blind">메일</span>
+                	</a>
+                	<a href="#" class="prmrcnt_g065_num" title="메일">
+                		0</a>
+                </li>
+                
+                <li class="prmrcnt_g065_calendar">
+                    <a href="javascript:fnGnbRightClickAction('LINK', 'NEW_WINDOW', 'http://calendar.nhnent.com', 'calendar');" class="prmrcnt_g065_thumb " title="캘린더">
+                    	<span class="blind">캘린더</span>
+                    </a>
+                    <a href="#"  class="prmrcnt_g065_num" title="캘린더">
+                    	1</a>
+                </li>
+
+				<li class="prmrcnt_g065_appr">
+                	<a href="javascript:fnGnbRightClickAction('LINK', '', 'http://apms.nhnent.com', 'apms');" class="prmrcnt_g065_thumb " title="결재">
+                		<span class="blind">결재</span>
+                	</a>
+                	<a href="javascript:fnGnbRightClickAction('', '', '', 'apms');" id="btn_gnbLayer_apmsBox" class="prmrcnt_g065_num" title="결재">
+                		0</a>
+                </li>
+                
+                <li class="prmrcnt_g065_fac">
+                	<a href="javascript:fnGnbRightClickAction('LINK', '', 'http://whatsup.nhnent.com/reserve/resourceReserveList.nhn', 'equipment');" class="prmrcnt_g065_thumb " title="공유설비">
+                		<span class="blind">공유설비</span>
+                	</a>
+                	<a href="javascript:fnGnbRightClickAction('', '', '', 'equipment');" id="btn_gnbLayer_equipmentBox" class="prmrcnt_g065_num" title="공유설비">
+                		0</a>
+                </li>
+                
+                <li class="prmrcnt_g065_report">
+             		<a href="javascript:void(0)" onClick="javaScript:fnConnectOpenWindowTTS();" class="prmrcnt_g065_thumb " title="장애신고">
+             			<span class="blind">신고</span>
+             		</a>
+             		<a href="#" class="prmrcnt_g065_num" title="장애신고">
+             			신고</a>
+             		
+                </li>
+                
+             </ul>
+             
+             <div id="gnbExternalAreaCountData"></div>
+             
+             <div id="connect_mail" class="prmrcnt_g065_ly prmrcnt_g065_ly_gnb prmrcnt_g065_ly_gnb2" style="right: 0px; display:none;" gnbPopupLayer="true">
+             	<style>
+		.prmrcnt_g065_bu_chck.prmrcnt_g065_on {
+		    background-position: 0 -200px;
+		}		
+		.prmrcnt_g065_bu_chck {
+		    background: url("HTTP://static.nhnent.com/static/site/whatsup/resources/img/bu_lft.png") no-repeat scroll 0 -150px transparent;
+		    display: inline-block;
+		    height: 12px;
+		    vertical-align: middle;
+		    width: 12px;
+		}
+		.prmrcnt_g065_bu_chck input {
+			display: none;
+		}
+		.prmrcnt_g065_mailBox_action_btn {
+		    left: 40px;
+		    position: absolute;
+		    top: 10px;
+		}
+		.prmrcnt_g065_fl {
+		    float: left;
+		}
+	</style>
+
+ 
+	<div class="prmrcnt_g065_ly_gnb_tit">
+		<ul class="prmrcnt_g065_tit">
+			<li><a href="#" id="id_btn_gnb_mail_unReadMailList">안 읽은 메일</a> <em>0</em></li>
+			<li><a href="#" id="id_btn_gnb_mail_mailList">전체메일</a></li>
+		</ul>
+		<a href="#" id="id_btn_gnb_mail_newOpen_write" class="prmrcnt_g065_gnb_btn"><strong><em class="prmrcnt_g065_ico_calendar"></em>메일쓰기</strong></a>
+	</div>
+	 
+	<div id="id_gnbMailBox_contents" class="prmrcnt_g065_ly_gnb_lst">
+ 		<p class="prmrcnt_g065_p_none">Loading...</p>
+	</div>
+	 
+	<div id="id_status_gnb_mail" class="prmrcnt_g065_ly_gnb_page">
+	     <div id="id_gnbMailBox_operation" class="prmrcnt_g065_chck_wrap">
+	         <span id="id_btn_gnb_mail_all_check" class="prmrcnt_g065_bu_chck"><input type="checkbox" name='gnb_mail_all_check' class="blind"></span>
+	     </div>
+	     
+	     <div class="prmrcnt_g065_mailBox_action_btn">
+	         <a href="#" id="id_btn_gnb_mail_setRemove">삭제</
+1ff8
+a>
+	         <span class="prmrcnt_g065_bar">|</span>
+	         <a href="#" id="id_btn_gnb_mail_setRead">읽음</a>
+	     </div>
+
+	     <div class="prmrcnt_g065_num_wrap"><em>1</em>/<span>1</span></div>
+	     
+	     <div class="prmrcnt_g065_btn_wrap">
+            <span class="prmrcnt_g065_btn prmrcnt_g065_prev"><button id="id_btn_gnb_mail_prev_page" type="button"><span class="blind">PREV</span></button></span>
+            <span class="prmrcnt_g065_btn prmrcnt_g065_next"><button id="id_btn_gnb_mail_next_page" type="button"><span class="blind">NEXT</span></button></span>
+        </div>
+    </div>
+    
+    <div class="prmrcnt_g065_ly_btm">
+        <a href="#" id="id_btn_gnb_mail_newOpen_unRead" class="prmrcnt_g065_fl">안읽은 메일함 더보기</a>
+        <a href="#" id="id_btn_gnb_mail_newOpen_read">전체메일함 더보기</a>
+    </div>
+    
+    <a href="#" id="id_btn_gnb_mail_close" class="prmrcnt_g065_btn_clse"><span class="blind">닫기</span></a>
+
+
+
+<script type="text/JavaScript">
+	var jsMsg_mail_dataLoadFail = '데이터 조회에 실패하였습니다.';
+	var jsMsg_mail_nothing = '메일함에 메일이 없습니다.';
+	var jsMsg_mail_displayFail = '화면 구성에 실패하였습니다.';
+	var jsMsg_mail_notSelectMail = '선택된 메일이 없습니다.';
+	var jsMsg_mail_apiFail = 'API 연동에 실패하였습니다.';
+
+	var _gnbMailBoxOpenURL = "http://mail.nhnent.com/write/popup/";
+	var _gnbMailBoxUnReadOpenURL = "http://mail.nhnent.com/list/unread";
+	var _gnbMailBoxTotalOpenURL = "http://mail.nhnent.com/list/all";
+	
+	var _gnbMailBoxShortCutBaseURL = "http://mail.nhnent.com/read/";
+</script>
+           
+             </div>           
+             <div id="connect_calendar" class="prmrcnt_g065_ly prmrcnt_g065_ly_gnb prmrcnt_g065_ly_gnb2" style="right:0px; display:none;" gnbPopupLayer="true">
+             	<style>
+		.prmrcnt_g065_ly_gnb2 .prmrcnt_g065_ly_gnb_lst .prmrcnt_g065_lst li .prmrcnt_g065_cont .prmrcnt_g065_subtit {
+		    color: #888888;
+		    text-align: right;
+		}
+	</style>
+
+
+    <div class="prmrcnt_g065_ly_gnb_tit">
+        <strong class="prmrcnt_g065_tit">오늘 나의 일정</strong>
+        <a href="#" id="id_btn_gnb_calendar_newOpen_write" class="prmrcnt_g065_gnb_btn"><strong><em class="prmrcnt_g065_ico_calendar"></em>일정, 약속쓰기</strong></a>
+    </div>
+    
+    <div id="id_gnbCalendarBox_contents" class="prmrcnt_g065_ly_gnb_lst">
+       <p class="prmrcnt_g065_p_none">Loading...</p>
+    </div>
+    
+    <div id="id_status_gnb_calendar" class="prmrcnt_g065_ly_gnb_page">
+        <div class="prmrcnt_g065_num_wrap"><em>1</em>/<span>1</span></div>
+        
+        <div class="prmrcnt_g065_btn_wrap">
+            <span class="prmrcnt_g065_btn prmrcnt_g065_prev"><button id="id_btn_gnb_calendar_prev_page" type="button"><span class="blind">PREV</span></button></span>
+            <span class="prmrcnt_g065_btn prmrcnt_g065_next"><button id="id_btn_gnb_calendar_next_page" type="button"><span class="blind">NEXT</span></button></span>
+        </div>
+    </div>
+    
+    <div class="prmrcnt_g065_ly_btm">
+        <a href="#" id="id_btn_gnb_calendar_newOpen_list">캘린더 더보기</a>
+    </div>
+    
+    <a href="#" id="id_btn_gnb_calendar_close" class="prmrcnt_g065_btn_clse"><span class="blind">닫기</span></a>
+
+
+
+<script type="text/JavaScript">
+	var jsMsg_cal_dataLoadFail = '데이터 조회에 실패하였습니다.';
+	var jsMsg_cal_guide = '일정이 없습니다.';
+	var jsMsg_cal_displayFail = '화면 구성에 실패하였습니다.';
+	var jsMsg_cal_nothing = '약속 장소가 존재하지 않습니다.';
+	var jsMsg_cal_refuse = '거절';
+	var jsMsg_cal_accept = '수락';
+	var jsMsg_cal_wait = '대기';
+	var jsMsg_cal_stay = '미정';
+	
+	var _gnbCalendarBoxOpenListURL = "http://calendar.nhnent.com";
+	var _gnbCalendarBoxOpenWriteURL = "http://calendar.nhnent.com";
+</script>
+	
+           
+             </div>
+             <div id="connect_submit" class="prmrcnt_g065_ly prmrcnt_g065_ly_gnb prmrcnt_g065_ly_gnb2" style="right: 0px; display:none;" gnbPopupLayer="true">
+             	<style>
+		.prmrcnt_g065_ly_gnb2 .prmrcnt_g065_ly_gnb_lst2 .prmrcnt_g065_lst li {
+		    float: none;
+		    width: 50%;
+		}	
+		.prmrcnt_g065_ly_gnb .prmrcnt_g065_lst li a {
+		    color: #323232;
+		    float: left;
+		    overflow: hidden;
+		    text-overflow: ellipsis;
+		    white-space: nowrap;
+		    width: 300px;
+		}		
+		.prmrcnt_g065_ly_gnb2 .prmrcnt_g065_ly_gnb_lst_v2 {
+			/* height: 148px; */
+		    height: 48px;
+		}
+		.prmrcnt_g065_ly_gnb2 .prmrcnt_g065_ly_gnb_lst2 .prmrcnt_g065_lst {
+			/* height: 42px; */
+		    height: 142px;
+		}		
+	</style>
+
+    
+    <div class="prmrcnt_g065_ly_gnb_tit">
+        <strong class="prmrcnt_g065_tit">결재할 문서</strong>
+    </div>
+    
+    <div id="id_gnbApmsBox_contents" class="prmrcnt_g065_ly_gnb_lst prmrcnt_g065_ly_gnb_lst_v2">
+        <p class="prmrcnt_g065_p_none prmrcnt_g065_p_none2">Loading...</p>
+    </div>
+    
+    <div id="id_status_gnb_apms" class="prmrcnt_g065_ly_gnb_page">        
+        <div class="prmrcnt_g065_num_wrap"><em>1</em>/<span>1</span></div>
+        
+        <div class="prmrcnt_g065_btn_wrap">
+            <span class="prmrcnt_g065_btn prmrcnt_g065_prev"><button id="id_btn_gnb_apms_prev_page" type="button"><span class="blind">PREV</span></button></span>
+            <span class="prmrcnt_g065_btn prmrcnt_g065_next"><button id="id_btn_gnb_apms_next_page" type="button"><span class="blind">NEXT</span></button></span>
+        </div>
+    </div>
+    
+    <ul class="prmrcnt_g065_ly_gnb_tab">
+    	<li id="id_btn_gnb_apms_bookmark" class="prmrcnt_g065_on"><a href="#">자주 사용하는 서식</a></li>
+    	<li id="id_btn_gnb_apms_recent" ><a href="#">최근사용</a></li>
+    </ul>
+    
+    <div id="id_gnbApmsBox_customDoc" class="prmrcnt_g065_ly_gnb_lst2">
+        <ul class="prmrcnt_g065_lst">
+        	<li>Loading...</li>
+        </ul>
+    </div>
+    <div class="prmrcnt_g065_ly_btm">
+        <a href="#" id="id_btn_gnb_apms_newOpen_list">결재 더보기</a>
+    </div>
+
+    <a href="#" id="id_btn_gnb_apms_close" class="prmrcnt_g065_btn_clse"><span class="blind">닫기</span></a>
+
+
+
+<script type="text/JavaScript">
+	var jsMsg_apms_dataLoadFail = '데이터 조회에 실패하였습니다.';
+	var jsMsg_apms_guide = '결재 할 문서가 없습니다.';
+	var jsMsg_apms_displayFail = '화면 구성에 실패하였습니다.';
+	
+	var _gnbApmsBoxOpenListURL = "http://apms.nhnent.com/Supremo/connect/connectIndex.nhn";
+</script>
+
+	
+           
+             </div>
+             <div id="connect_equipment" class="prmrcnt_g065_ly prmrcnt_g065_ly_gnb prmrcnt_g065_ly_gnb2" style="right:0px; display:none;" gnbPopupLayer="true">
+             	<div class="prmrcnt_g065_ly_gnb_tit">
+        <strong class="prmrcnt_g065_tit">나의 예약목록</strong>
+        <a href="#" id="id_btn_gnb_equipment_newOpen_write" class="prmrcnt_g065_gnb_btn"><strong><em class="prmrcnt_g065_ico_calendar"></em>공유설비 예약</strong></a>
+    </div>
+    
+    <div id="id_gnbEquipmentBox_contents" class="prmrcnt_g065_ly_gnb_lst">        
+        <p class="prmrcnt_g065_p_none">Loading...</p>
+    </div>
+    
+    <div id="id_status_gnb_equipment" class="prmrcnt_g065_ly_gnb_page">
+        <div class="prmrcnt_g065_num_wrap"><em>1</em>/<span>1</span></div>
+        
+        <div class="prmrcnt_g065_btn_wrap">
+            <span class="prmrcnt_g065_btn prmrcnt_g065_prev"><button id="id_btn_gnb_equipment_prev_page" type="button"><span class="blind">PREV</span></button></span>
+            <span class="prmrcnt_g065_btn prmrcnt_g065_next"><button id="id_btn_gnb_equipment_next_page" type="button"><span class="blind">NEXT</span></button></span>
+        </div>
+    </div>
+    
+    <div class="prmrcnt_g065_ly_btm">
+        <a href="#" id="id_btn_gnb_equipment_newOpen_list">공유설비 더보기</a>
+    </div>
+    
+    <a href="#" id="id_btn_gnb_equipment_close" class="prmrcnt_g065_btn_clse"><span class="blind">닫기</span></a>
+
+
+<script type="text/Jav
+1ff8
+aScript">
+	var jsMsg_equip_dataLoadFail = '데이터 조회에 실패하였습니다.';
+	var jsMsg_equip_notResvEquipment = '예약된 설비가 없습니다.';
+	var jsMsg_equip_displayFail = '화면 구성에 실패하였습니다.';
+	
+	var _gnbEquipmentBoxOpenListURL = "http://whatsup.nhnent.com/reserve/resourceReserveList.nhn?reservePrfrnYn=Y";
+	var _gnbEquipmentBoxOpenWriteURL = "http://whatsup.nhnent.com/reserve/resourceReserveList.nhn?shreFcltClassCd=MTR&shreFcltClassCdEtc=GEN";
+</script>
+	
+           
+             </div>
+         </div>
+         
+      </div>
+      
+ 
+
+<script type="text/JavaScript">
+
+	document.domain = "nhnent.com";
+	
+	var jsMsg_mainGnb_logout = "로그아웃 시 실행중인 다른 사내시스템도 자동 로그아웃 됩니다.\n통합인증을 유지하려면 취소를 선택하고 브라우저를 종료해 주세요.";
+	
+	
+	var _gnbUniquePrefix = "prmrcnt_g065_";
+	
+	
+	var _gnbConnectSystemHttpURL = "http://whatsup.nhnent.com";
+		
+//  	var _gnbProxyURL = 				"http://connect.nhncorp.com/extraGnb";	
+//  	var _gnbMailBoxBaseURL = 		"http://connect.nhncorp.com/extraGnb";
+//  	var _gnbCalendarBoxBaseURL = 	"http://connect.nhncorp.com/extraGnb";
+//  	var _gnbApmsBoxBaseURL = 		"http://connect.nhncorp.com/extraGnb";
+//  	var _gnbEquipmentBoxBaseURL = 	"http://connect.nhncorp.com/extraGnb";
+    
+//  	var _gnbProxyURL = 				"http://connect-dev.nhncorp.com/extraGnb";	
+//  	var _gnbMailBoxBaseURL = 		"http://connect-dev.nhncorp.com/extraGnb";
+//  	var _gnbCalendarBoxBaseURL = 	"http://connect-dev.nhncorp.com/extraGnb";
+//  	var _gnbApmsBoxBaseURL = 		"http://connect-dev.nhncorp.com/extraGnb";
+//  	var _gnbEquipmentBoxBaseURL = 	"http://connect-dev.nhncorp.com/extraGnb";
+
+	var _gnbProxyURL = 				"http://whatsup.nhnent.com/extraGnb";
+	var _gnbMailBoxBaseURL = 		"http://whatsup.nhnent.com/extraGnb";
+	var _gnbCalendarBoxBaseURL = 	"http://whatsup.nhnent.com/extraGnb";
+	var _gnbApmsBoxBaseURL = 		"http://whatsup.nhnent.com/extraGnb";
+	var _gnbEquipmentBoxBaseURL = 	"http://whatsup.nhnent.com/extraGnb";
+	
+	
+	
+	var _globalGnbCtxRootPath = "/";
+	
+	var _globalGnbIsRealRequest = false;
+	
+		_globalGnbIsRealRequest = true;
+	
+	
+	var _globalGnbTheme = "CONNECT_GNB";
+	
+	
+    var _globalGnbTtsOpenType = "TTS_TYPE";
+    
+
+    var _globalGnbTtsUrl = "";
+    
+        	_globalGnbTtsUrl = "http://watchdog.nhnent.com/internal/watchdog/trouble/view?lang=ko";        
+         
+    
+    var _globalGnbTtsMailUrl = "http://whatsup.nhnent.com/myJob/tts/sendMail";
+	
+	var _globalGnbDnDOrder = "";
+	
+		_globalGnbDnDOrder += '87864';
+     _globalGnbDnDOrder += ','; 
+		_globalGnbDnDOrder += '87865';
+     _globalGnbDnDOrder += ','; 
+		_globalGnbDnDOrder += '87866';
+     _globalGnbDnDOrder += ','; 
+		_globalGnbDnDOrder += '87867';
+     _globalGnbDnDOrder += ','; 
+		_globalGnbDnDOrder += '87868';
+    
+	function getGnbInvokerURL(url) {	
+		return _globalGnbCtxRootPath + "interwork/servlet/gnbInvoker?runtimeMode=REAL_GNB_USING_LOCALE_COOKIE&url=" + url;
+	} 
+		
+	
+	var _gnbCountRefreshTime = (10 * 60) * 1000;
+
+</script>
+ </div>
+					
+				<!-- 통합검색 bar 테마 적용 (네이버, 한게임 모두 제공) -->
+			<div class="prmrcnt_g065_header_wrap ">
+					    <div class="prmrcnt_g065_header_flex">
+							
+							<!-- 법인별 로고 -->
+							<h1 class="prmrcnt_g065_h_logo">
+											<a href="/ne">
+												<img src="HTTP://static.nhnent.com/static/site/wgnb/siteTheme_ent/logoImage/h_whatsup_new_01.png?ver=20170703">
+											</a> 
+											<a href="/ne">
+												<img src="HTTP://static.nhnent.com/static/site/wgnb/siteTheme_ent/logoImage/logo_ne_theme_01.png?ver=20170703">
+											</a>
+										</h1>								
+									<!-- 검색  -->
+							<div class="prmrcnt_g065_h_srch prmrcnt_g065_h_srch_wh">
+								<fieldset>
+		<legend class="blind">검색영역</legend>
+		<span class="prmrcnt_g065_srch_box">
+			<input id="searchVal" name="searchVal" type="text" autocomplete="off" style="ime-mode:active" title="검색어를 입력해주세요." class="prmrcnt_g065_srch_inpt"> 
+			<a href="#" class="prmrcnt_g065_btn_srch" onclick="fnConnectGoSearch();"><span class="blind">검색</span></a>
+		</span>
+	</fieldset>
+	
+	<form id="boardSearchForm" name="boardSearchForm" method="POST">
+		<input type="hidden" name="currentPate" value="1" />
+		<input type="hidden" name="searchArticleTextType" value="all" />
+		<input type="hidden" name="searchArticlePeriodType" value="all" />
+		<input type="hidden" name="searchBoardMetaType" value="all" />
+		<input type="hidden" name="searchArticleText" id="searchArticleText" />
+	</form>    
+	
+
+
+<script type="text/JavaScript">
+
+	
+	var _gnbSearchFormDomain = 'nhnent.com';
+
+	var isOpenEmpSearch = false;
+	var isOpenBoardSearch = false;
+	var isOpenMultiSearch = false;
+	var isOpenAprvSearch = false;
+	
+	
+				var _gnbSearchFormCorpType = 'MAIN_CORP';
+				
+				isOpenEmpSearch = true; 
+				isOpenBoardSearch = true;
+				
+					isOpenMultiSearch = true;
+				
+				isOpenAprvSearch = true;
+			
+
+
+	if(_gnbSearchFormCorpType === 'JAPAN_CORP') {
+		var _gnbSearchFormTotalSearchURL = "http://nsearch.nhn-playart.com/search.naver?where=";
+	} else {
+		var _gnbSearchFormTotalSearchURL = "http://nsearch.nhnent.com/search.naver?where=";
+	}
+
+	
+	var _gnbSearchFormAprvURL = "http://apms.nhnent.com/app/dfmList/dfmSearchListForUser?refType=connectGnb";
+
+	
+	var _gnbSearchFormOrgUserURL = "http://orguser.nhnent.com/searchOrg.nhn";
+
+
+	
+	var  _gnbSearchFormSiteAliasId = "";	
+	_gnbSearchFormSiteAliasId = _gnbSearchFormSiteAliasId.length < 1 ? "ne" : _gnbSearchFormSiteAliasId;
+	
+	
+	var _gnbSearchFormBoardURL = "http://whatsup.nhnent.com/" + _gnbSearchFormSiteAliasId +"/board/search/searchPage";
+
+</script>
+
+
+
+
+
+
+<script type="text/javascript" src="http://orguser.nhnent.com/js/orguser.autocomp.js?ver=20170703"></script>
+<script type="text/javascript">
+jQuery(document).ready(function(){
+	
+	var empJsSubDomain = "orguser";
+	
+	var autocomp_options = {
+		tabOption : true,
+		fixedSide : "right",   
+		language : "ko",  // ko, en, ja, zh
+		subDomain : empJsSubDomain, // real : orguser, dev : orguser-dev, default : orguser
+		inputId : "searchVal",
+		openEmpSearch: isOpenEmpSearch,
+		openBoardSearch: isOpenBoardSearch,
+		openMultiSearch: isOpenMultiSearch,
+		openAprvSerach: isOpenAprvSearch,
+		caller : "whatsup",
+		openPopup : true,
+		hideByOuterClick : true
+	}
+	
+	var autocompObject = new OrgUserAutoComp(autocomp_options);
+}); 
+</script>
+
+
+
+
+</div>
+				
+							<!-- 모바일 (ne, nk, sd, ml, sf, es, tl, ad 법인만 제공) -->
+							<style>
+		.prmrcnt_g065_ly_mobile .prmrcnt_g065_sec_m_connect {
+		    background-attachment: scroll;
+		    background-clip: border-box;
+		    background-color: rgba(0, 0, 0, 0);
+		    background-image: none;
+		    background-origin: padding-box;
+		    background-position: 100% 3px;
+		    background-repeat: no-repeat;
+		    background-size: auto auto;
+		    float: left;
+		    height: 160px;
+		    width: 165px;
+		}		
+		.prmrcnt_g065_ly_mobile .prmrcnt_g065_sec_m_connect p {
+		    font-size: 11px;
+		    font-weight: bold;
+		    line-height: 15px;
+		    padding-bottom: 7px;
+		    padding-left: 0;
+		    padding-right: 0;
+		    padding-top: 0;
+		}
+		
+		.prmrcnt_g065_ly_mobile .prmrcnt_g065_sec_app_ncs h3 {
+			text-align: left;
+			padding-left: 24px;
+		}
+		
+		.prmrcnt_g065_ly_mobile .prmrcnt_g065_sec_app_ncs ul {
+			padding-bottom: 20px;
+		}
+		
+	</style>
+ 
+    
+    
+           
+    <a href="javascript:fnConnectShowMobile();" class="prmrcnt_g065_btn_mobile" id="connectShowMobileButton">
+    	<span class="prmrcnt_g065_ico_mobile"><span class="blind">Mobile</span></span>
+    	<!-- UP ICON -->
+    	<!-- <span class="prmrcnt_g065_ico_up"><span class="blind">up</span></span> -->
+    </a>
+				
+				
+				
+				
+	<div id="connectMobileDiv" class="prmrcnt_g065_ly_mobile" style="display: none" >
+		<div style="float:left; margin-bottom: 10px;">
+			<div class="prmrcnt_g065_sec_m_connect" style="height: auto;
+1ff8
+">
+				<h3 class="blind">Mobile CONNECT</h3>
+					<p>
+						모바일에 최적화된<br><strong>What's up</strong>을 사용하세요<span class="prmrcnt_g065_tx_normal">
+							<!-- UP ICON (Hangame) -->
+							<!-- <span class="prmrcnt_g065_ico_new"><span class="blind">new</span></span> -->
+							모바일 What's up
+						</span>
+						<img src='HTTP://static.nhnent.com/static/site/wgnb/resources_ent/img/whatsup_qr.png' width="69" height="67" alt="">
+					</p>
+					<a href="javascript:fnConnectSmsMobile('myapp', 'all');">URL 문자전송</a>
+					<h3 class="blind">Dooray 메신저 App.</h3>
+				<p>
+				<span class="prmrcnt_g065_tx_normal">
+					<!-- UP ICON (Hangame) -->
+					<!-- <span class="prmrcnt_g065_ico_new"><span class="blind">new</span></span> -->
+					<span style="color:#45a7e7">Dooray 메신저</span> App.
+				</span>
+					<img src='HTTP://static.nhnent.com/static/site/wgnb/resources_ent/img/mobile_jam_qr.PNG' width="69" height="67" alt="">
+				</p>
+				<a href="javascript:fnConnectSmsMobile('mobile_jam', 'all');">URL 문자전송</a>
+				</div>
+
+			<div class="prmrcnt_g065_sec_app_ncs">
+
+				<h3><strong>Works One</strong> App.</h3>
+				<ul>
+					<li class="prmrcnt_g065_ico_ios">
+						iOS<a href="javascript:fnConnectSmsMobile('ncs_mail', 'ios');">URL 문자전송</a>
+					</li>
+					<li class="prmrcnt_g065_ico_and">
+						ANDROID<a href="javascript:fnConnectSmsMobile('ncs_mail', 'and');">URL 문자전송</a>
+					</li>
+				</ul>
+				<h3><strong style="color:#45a7e7">Dooray 프로젝트</strong> App.</h3>
+				<ul>
+					<li>
+						iOS / ANDROID<a href="javascript:fnConnectSmsMobile('dooray_project', 'all');">URL 문자전송</a>
+							</li>
+				</ul>
+
+				<h3><strong  style="color:#45a7e7">Dooray 메신저</strong> for Desktop</h3>
+				<ul>
+					<li>
+						Windows / OSX
+						<a target="_blank" href="http://apps.dooray.com/release/files/messenger/">Download</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>		
+
+
+
+<script type="text/JavaScript">
+
+	var jsMessage1 = "SMS가 발송되었습니다.";
+	var jsMessage2 = "오류가 발생하였습니다. 시스템 담당자에게 문의하시기 바랍니다.";
+	var jsMessage3 = "오류가 발생하였습니다. 시스템 담당자에게 문의하시기 바랍니다.";
+	
+	var jsMessageGuide1 = "SMS 수신이 안되는 경우에는";
+	var jsMessageGuide2= "로 접속 후 설치하시기 바랍니다.";
+	
+</script>
+
+
+
+
+
+
+
+</div>
+					</div>
+					
+				<script type="text/javascript" src="HTTP://static.nhnent.com/static/site/wgnb/resources_ent/js/gnb.js?ver=20170703"></script>
+		
+		
+		<script type="text/javascript" src="HTTP://static.nhnent.com/static/site/wgnb/resources_ent/js/gnbPortletBox.js?ver=20170703"></script>
+<script type="text/JavaScript">
+		    jQuery(document).ready(function(){
+		    	
+		    	// GNB 카운트 Ajax 조회 (메일, 캘린더, 결재, 공유설비)
+				newRefreshGnbCount();
+		       
+		        // 사내시스템 Drag & Drop 설정
+		        var GNBSortOrderObjFromJQuery = jQuery('#GNB-sortOrder');
+			    GNBSortOrderObjFromJQuery.val(_globalGnbDnDOrder);    
+		    	
+			    setGnbDnD(GNBSortOrderObjFromJQuery);	    
+		    });
+		</script>
+		
+		
+		
+
+
+	</div>
+
+
+
+		<div id="container">
+			
+			<style>	
+	.leftmenu_IG_open {
+	    background-attachment: scroll;
+	    background-clip: border-box;
+	    background-color: transparent;
+	    background-image: url("http://static.nhnent.com/static/site/whatsup/resources_ent/img/bu_rgt.png");
+	    background-origin: padding-box;
+	    background-position: 85% -322px;
+	    background-repeat: no-repeat;
+	    background-size: auto auto;
+	}
+	.leftmenu_IG_close {
+	    background-attachment: scroll;
+	    background-clip: border-box;
+	    background-color: transparent;
+	    background-image: url("http://static.nhnent.com/static/site/whatsup/resources_ent/img/bu_rgt.png");
+	    background-origin: padding-box;
+	    background-position: 85% -366px;
+	    background-repeat: no-repeat;
+	    background-size: auto auto;
+	}
+</style>
+
+
+
+<style>
+			.snb .btn_go .btn_v2 a, .snb .btn_v3 a {
+				padding-bottom: 22px;
+				padding-left: 0;
+				padding-right: 0;
+				padding-top: 28px;
+			}
+			.snb .btn_go .btn_v1 a {
+				padding-top: 20px;
+			}		
+		</style>
+		<div class="snb">
+       
+       
+            <div class="snb_top">
+                <h2 class="blind">게시판 바로가기</h2>
+                <div class="btn_go ">
+                    <ul>
+                    <li class="btn_v1"> 
+                        <a href="/ne/board/listByArea/attn" class="btn_att">
+                        	<em class="num"><span id="id_attention_count_display">-</span></em>
+                            <strong>Attention</strong>
+                        </a>
+                    </li>
+                    <li class="btn_v2"><a href='/ne/myboard/mylist'>내 게시물</a></li>
+                    <li class="btn_v3"><a href='/admin/board/mylist'>관리</a></li>
+                    <li class="btn_v4"><a href='/ne/board/regist'>게시글쓰기</a></li>
+                    </ul>
+                </div>
+                <div class="bg_corner">
+                    <span class="rt"></span>
+                    <span class="lb"></span>
+                </div>
+            </div>
+       
+       
+			<div class="snb_nav">
+                <h2 class="blind">게시판 카테고리</h2>
+                
+                <div id="id_custom_menu_fd_634" class="nav_lst frst">                       
+			                        
+			                        <h3>Game<span id="id_custom_menu_new_634" code=""></span></h3>   
+			                        <a href="#" id="id_custom_btn_634" title="펼치기" class="btn_fd"><span class="blind">펼치기</span></a>    
+			                        
+			                        <ul>
+			                        <li>
+																<a href="/ne/board/list/635">게임출시/업데이트</a> 
+																<span id="id_menu_new_635"></span>
+															</li>
+														<li id="id_txtMenu_675" class="leftmenu_IG_open">
+																<a href="#" id="id_innerMenu_btn_TEXT:637:638" class="btn_innerMenu">게임이벤트</a> 
+																<span id="id_menu_new_675"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/637"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>사내이벤트</a> 
+																<span id="id_menu_new_637"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/638"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>사외이벤트</a> 
+																<span id="id_menu_new_638"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/640">장애/버그신고</a> 
+																<span id="id_menu_new_640"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/641">아이디어/개선의견</a> 
+																<span id="id_menu_new_641"></span>
+															</li>
+														<li id="id_txtMenu_677" class="leftmenu_IG_open">
+																<a href="#" id="id_innerMenu_btn_TEXT:650:683" class="btn_innerMenu">게임 인사이트/리서치</a> 
+																<span id="id_menu_new_677"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/650"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>인사이트</a> 
+																<span id="id_menu_new_650"></span>
+															</li>
+														<li>
+																<a href="/ne/survey/surveyList"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>리서치</a> 
+																<span id="id_menu_new_683"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/652">게임 기타</a> 
+																<span id="id_menu_new_652"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/968">외부스토어 소식</a> 
+																<span id="id_menu_new_968"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/
+1ff8
+1109">글로벌원빌드 공통기능</a> 
+																<span id="id_menu_new_1109"></span>
+															</li>
+														</ul>
+			                        
+			                        </div>	                
+				                <div id="id_custom_menu_fd_784" class="nav_lst ">                       
+			                        
+			                        <h3>Tech<span id="id_custom_menu_new_784" code=""></span></h3>   
+			                        <a href="#" id="id_custom_btn_784" title="펼치기" class="btn_fd"><span class="blind">펼치기</span></a>    
+			                        
+			                        <ul>
+			                        <li>
+																<a href="/ne/board/list/759">기술정책공유</a> 
+																<span id="id_menu_new_759"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/786">보안/인프라/플랫폼릴리즈</a> 
+																<span id="id_menu_new_786"></span>
+															</li>
+														<li id="id_txtMenu_676" class="leftmenu_IG_open">
+																<a href="#" id="id_innerMenu_btn_TEXT:788:645:787:1082" class="btn_innerMenu">기술공유/노하우</a> 
+																<span id="id_menu_new_676"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/788"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>기술공유</a> 
+																<span id="id_menu_new_788"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/645"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>시행착오를 지지한다</a> 
+																<span id="id_menu_new_645"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/787"><span style="color:#B3B3B1;">&nbsp;ㄴ&nbsp;</span>플랫폼/인프라 Q&A</a> 
+																<span id="id_menu_new_787"></span>
+															</li>
+														</ul>
+			                        
+			                        </div>	                
+				                <div id="id_custom_menu_fd_654" class="nav_lst ">                       
+			                        
+			                        <h3>Work<span id="id_custom_menu_new_654" code=""></span></h3>   
+			                        <a href="#" id="id_custom_btn_654" title="펼치기" class="btn_fd"><span class="blind">펼치기</span></a>    
+			                        
+			                        <ul>
+			                        <li>
+																<a href="/ne/board/list/685">인사/교육</a> 
+																<span id="id_menu_new_685"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/686">총무</a> 
+																<span id="id_menu_new_686"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/1560">복리후생/제휴할인</a> 
+																<span id="id_menu_new_1560"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/660">재무</a> 
+																<span id="id_menu_new_660"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/661">경조사</a> 
+																<span id="id_menu_new_661"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/662">사옥이야기</a> 
+																<span id="id_menu_new_662"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/664">업무 기타</a> 
+																<span id="id_menu_new_664"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/1283">용어 사전</a> 
+																<span id="id_menu_new_1283"></span>
+															</li>
+														</ul>
+			                        
+			                        </div>	                
+				                <div id="id_custom_menu_fd_666" class="nav_lst ">                       
+			                        
+			                        <h3>News<span id="id_custom_menu_new_666" code=""></span></h3>   
+			                        <a href="#" id="id_custom_btn_666" title="펼치기" class="btn_fd"><span class="blind">펼치기</span></a>    
+			                        
+			                        <ul>
+			                        <li>
+																<a href="/ne/board/list/667">뉴스클립</a> 
+																<span id="id_menu_new_667"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/680">보도자료</a> 
+																<span id="id_menu_new_680"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/690">사내소식</a> 
+																<span id="id_menu_new_690"></span>
+															</li>
+														</ul>
+			                        
+			                        </div>	                
+				                <div id="id_custom_menu_fd_668" class="nav_lst ">                       
+			                        
+			                        <h3>Life<span id="id_custom_menu_new_668" code=""></span></h3>   
+			                        <a href="#" id="id_custom_btn_668" title="펼치기" class="btn_fd"><span class="blind">펼치기</span></a>    
+			                        
+			                        <ul>
+			                        <li>
+																<a href="/ne/board/list/670">자유게시판</a> 
+																<span id="id_menu_new_670"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/671">도와주세요(Q&A)</a> 
+																<span id="id_menu_new_671"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/672">중고장터</a> 
+																<span id="id_menu_new_672"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/673">할인/혜택/광고</a> 
+																<span id="id_menu_new_673"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/1496">Lucky Auction</a> 
+																<span id="id_menu_new_1496"></span>
+															</li>
+														<li>
+																<a href="/ne/board/list/674">판교라이프</a> 
+																<span id="id_menu_new_674"></span>
+															</li>
+														</ul>
+			                        
+			                        </div>	                
+				                <div class="bg_corner">
+                    <span class="rt"></span>
+                    <span class="lb"></span>
+                </div>
+            </div>
+            
+            </div>
+        
+        
+
+        
+        
+
+<script type="text/javascript" src="/resources/js/main/AjaxForLeftMenu.js?ver=20150118"></script>
+<script type="text/javascript" src="/resources/js/main/FoldingMenu.js?ver=20150118"></script>
+
+<script type="text/JavaScript"> 
+    var j$ = jQuery.noConflict(); 
+    
+    j$(document).ready(function () {
+
+    	
+	   	// Attention 카운트 조회
+	   	fnAjaxAttentionCount("/ne/pagelet/attentionCount");
+
+	   	
+	   	// 게시판 새글 조회
+	   	fnAjaxBoardNewArticle("/ne/pagelet/articleNewInfo");
+	   	
+
+	   	// 새로운 설문조사 조회
+		var surveyNodeId = '';
+		
+	   	
+							surveyNodeId = '683';
+							   						
+	   	
+		if (surveyNodeId != '') {
+			fnAjaxSurveyNew("/ne/survey/surveyNewPollCheck", "NE11877", surveyNodeId);
+		}
+    });
+    
+    
+    
+    
+	j$('.nav_lst > .btn_more').each(function() {   		
+		// More아이콘 Folding 초기화
+		if (this.id == '') return;
+		
+		var arrTemp = this.id.split('_');
+		var strId = 'id_menu_hide_' + arrTemp[2];
+		if (getCookie(strId) == "show") {
+			fnFoldingMoreShow(arrTemp[2]);	
+			j$('#id_btn_' + arrTemp[2]).html("접기");
+		}
+	}).click(function(e) {        	
+    	// 사용자 메인 죄측메뉴 더보기 On/Off
+    	e.preventDefault();
+    	
+    	// 메인 미리보기 영역의 more 버튼과 .class가 일치함(주의)
+    	// 미리보기 영역에서 이벤트가 들어오면
+    	if (this.id == '') return;
+    	
+    	var arrTemp = this.id.split('_');        	
+    	fnFoldingMoreToggle(arrTemp[2]);	
+    	
+    	// 사용자가 버튼을 클릭할시 텍스
+1ff8
+트를 변경한다.
+    	// New 아이콘을 붙었을경우를 검사하여 적용한다.
+    	var objBtn = j$('#id_btn_' + arrTemp[2]);
+    	
+    	var strNewIcon = "";
+    	if (objBtn.attr("code") == "new") {
+    		strNewIcon = "<em class=bu_new><span class=blind>New</span></em>";
+    	}
+    	
+    	if (objBtn.hasClass("up")) {
+    		objBtn.html("접기");
+    	} else {
+    		objBtn.html("더보기"+strNewIcon);
+    	}
+    });
+
+
+	
+	j$('.btn_fd').each(function() {    		
+		// On/Off아이콘 Folding 초기화
+		if (this.id == '') return;
+		
+		var arrTemp = this.id.split('_');
+		if (arrTemp[1] == "custom") {
+			// 사용자 On/Off
+			var strId = 'id_custom_menu_fd_' + arrTemp[3];
+			// 기본적으로 열려있다.
+			if (getCookie(strId) == "hide") {
+				fnCustomFoldingOnOffShow(arrTemp[3]);	
+			}
+		} else {
+			// 회사지정 On/Off
+			var strId = 'id_menu_fd_' + arrTemp[2];
+			// 기본적으로 접혀있다.
+			if (getCookie(strId) == "show") {
+				fnFoldingOnOffShow(arrTemp[2]);	
+			}
+		}
+	}).click(function(e) {
+		// 사용자 메인 좌측메뉴 메뉴그룹 On/Off
+		e.preventDefault();
+		if (this.id == '') return;
+
+		var arrTemp = this.id.split('_');
+		if (arrTemp[1] == "custom") {
+			// 사용자 On/Off
+			fnCustomFoldingOnOffToggle(arrTemp[3]);
+			
+			// New 아이콘을 붙었을경우를 검사하여 적용한다.
+			var obj = j$('#id_custom_menu_new_' + arrTemp[3]);
+			
+			var strNewIcon = "";
+			if (obj.attr("code") == "new") {
+				strNewIcon = "<em class=bu_new><span class=blind>New</span></em>";
+	    	}
+			
+			var objFD = j$('#id_custom_menu_fd_' + arrTemp[3]);
+			if (objFD.hasClass("fd")) {
+				obj.html(strNewIcon);
+			} else {
+				obj.html("");
+			}
+		} else {
+			// 회사지정 On/Off
+			fnFoldingOnOffToggle(arrTemp[2]);
+			
+			// New 아이콘을 붙었을경우를 검사하여 적용한다.
+			var obj = j$('#id_corp_menu_new_' + arrTemp[2]);
+			
+			var strNewIcon = "";
+			if (obj.attr("code") == "new") {
+				strNewIcon = "<em class=bu_new><span class=blind>New</span></em>";
+	    	}
+			
+			var objFD = j$('#id_menu_fd_' + arrTemp[2]);
+			if (objFD.hasClass("fd")) {
+				obj.html(strNewIcon);
+			} else {
+				obj.html("");
+			}
+		}		
+	});
+    
+    
+	
+    j$('.btn_innerMenu').each(function() {
+		// On/Off아이콘 Folding 초기화
+		if (this.id == '') return;
+    	
+		var obj = j$(this).parent();
+		if (getCookie(obj.attr("id")) == "hide") {
+			// 화면 로딩시 쿠키값을 비교하여 hide를 가지면 메뉴를 접는다.
+			obj.removeClass('leftmenu_IG_open');
+			obj.addClass('leftmenu_IG_close');
+			
+			var arrTemp = this.id.split('_');
+			var arrId = arrTemp[3].split(':');
+			for (var i=0; i<arrId.length; i++) {
+				if (i != 'TEXT') {
+					j$('#id_menu_new_' + arrId[i]).parent().addClass('hide');
+				}
+			}			
+		}
+		
+    }).click(function(e) {
+		e.preventDefault();
+		if (this.id == '') return;
+    	
+		var obj = j$(this).parent();
+		//alert(obj.attr("id"));
+		if (obj.hasClass('leftmenu_IG_open')) {
+			
+			// 메뉴를 접는다.
+			obj.removeClass('leftmenu_IG_open');
+			obj.addClass('leftmenu_IG_close');
+			
+			var arrTemp = this.id.split('_');
+			var arrId = arrTemp[3].split(':');
+			for (var i=0; i<arrId.length; i++) {
+				if (i != 'TEXT') {
+					j$('#id_menu_new_' + arrId[i]).parent().addClass('hide');
+				}
+			}
+			setCookie(obj.attr("id"), "hide", 1);
+
+		} else {
+			
+			// 메뉴를 펼친다.
+			obj.removeClass('leftmenu_IG_close');
+			obj.addClass('leftmenu_IG_open');
+			
+			var arrTemp = this.id.split('_');
+			var arrId = arrTemp[3].split(':');
+			for (var i=0; i<arrId.length; i++) {
+				if (i != 'TEXT') {
+					j$('#id_menu_new_' + arrId[i]).parent().removeClass('hide');
+				}
+			}
+			setCookie(obj.attr("id"), "show", 1);
+		}		
+    });
+    
+    
+    // New 아이콘 처리를 위해서 그룹 정보를 구한다.
+	var arrLeftMenuGroupNameList = [];
+	var arrLeftMenuGroupCodeList = [];
+    function fnCustomFolderIconSetting() {    	
+		
+
+			var arrLeftMenuGroup_634 = [];
+			
+			
+			    	
+			arrLeftMenuGroup_634.push("635");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("675");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("637");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("638");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("640");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("641");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("677");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("650");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("683");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("652");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("968");
+			    	
+			
+			    	
+			arrLeftMenuGroup_634.push("1109");
+			    	
+			
+		
+			arrLeftMenuGroupNameList.push("634");
+			arrLeftMenuGroupCodeList.push(arrLeftMenuGroup_634);
+			
+		
+
+			var arrLeftMenuGroup_784 = [];
+			
+			
+			    	
+			arrLeftMenuGroup_784.push("759");
+			    	
+			
+			    	
+			arrLeftMenuGroup_784.push("786");
+			    	
+			
+			    	
+			arrLeftMenuGroup_784.push("676");
+			    	
+			
+			    	
+			arrLeftMenuGroup_784.push("788");
+			    	
+			
+			    	
+			arrLeftMenuGroup_784.push("645");
+			    	
+			
+			    	
+			arrLeftMenuGroup_784.push("787");
+			    	
+			
+		
+			arrLeftMenuGroupNameList.push("784");
+			arrLeftMenuGroupCodeList.push(arrLeftMenuGroup_784);
+			
+		
+
+			var arrLeftMenuGroup_654 = [];
+			
+			
+			    	
+			arrLeftMenuGroup_654.push("685");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("686");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("1560");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("660");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("661");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("662");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("664");
+			    	
+			
+			    	
+			arrLeftMenuGroup_654.push("1283");
+			    	
+			
+		
+			arrLeftMenuGroupNameList.push("654");
+			arrLeftMenuGroupCodeList.push(arrLeftMenuGroup_654);
+			
+		
+
+			var arrLeftMenuGroup_666 = [];
+			
+			
+			    	
+			arrLeftMenuGroup_666.push("667");
+			    	
+			
+			    	
+			arrLeftMenuGroup_666.push("680");
+			    	
+			
+			    	
+			arrLeftMenuGroup_666.push("690");
+			    	
+			
+		
+			arrLeftMenuGroupNameList.push("666");
+			arrLeftMenuGroupCodeList.push(arrLeftMenuGroup_666);
+			
+		
+
+			var arrLeftMenuGroup_668 = [];
+			
+			
+			    	
+			arrLeftMenuGroup_668.push("670");
+			    	
+			
+			    	
+			arrLeftMenuGroup_668.push("671");
+			    	
+			
+			    	
+			arrLeftMenuGroup_668.push("672");
+			    	
+			
+			    	
+			arrLeftMenuGroup_668.push("673");
+			    	
+			
+			    	
+			arrLeftMenuGroup_668.push("1496");
+			    	
+			
+			    	
+			arrLeftMenuGroup_668.push("674");
+			    	
+			
+		
+			arrLeftMenuGroupNameList.push("668");
+			arrLeftMenuGroupCodeList.push(arrLeftMenuGroup_668);
+			
+		    	 
+    }
+    fnCustomFolderIconSetting();
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    
+            
+            <div id="content">
+			
+				<div class="main">
+
+    				<div class="att_area">
+    					<h2>Attention</h2>
+    					<ul id="attention" class="lst_type">
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158328">USB 등 외부저장매체 사용 정책 변경 안내</a> 
+    											</p>
+    											<em class="date">1일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158296">[사내공모] 검색사업팀_기획(~9.11)</a> 
+    											</p>
+    											<em class="date">2일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" c
+1ff8
+lass="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158292">[기술리더] 게임 클라이언트 부문 이광수 수석님을 소개합니다.</a> <span class=num>[22]</span>
+    											</p>
+    											<em class="date">2일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158239">[사내공모] GB스튜디오_게임사업기획(~9.6)</a> 
+    											</p>
+    											<em class="date">6일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158221">[사내공모] KR게임아트실_게임아트 (~9.5)</a> 
+    											</p>
+    											<em class="date">6일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158201">[사내공모] BI팀_개발 (~9.4)</a> 
+    											</p>
+    											<em class="date">8일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158199">[사내공모] AMP개발실_개발 (~9.4)</a> 
+    											</p>
+    											<em class="date">8일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158120">[사내공모] 기술본부_기획/개발 (~8.31) / 모집부서가 추가되었습니다.</a> 
+    											</p>
+    											<em class="date">12일전</em>
+    										</li>
+
+    										<li class="lineitem">
+    											<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+    											<p class="con ">
+    												<a href="/ne/board/viewByArea/attn/158114">linux 서버(CentOS6, 7) open file limit 설정 변경 공지</a> <span class=num>[1]</span>
+    											</p>
+    											<em class="date">12일전</em>
+    										</li>
+
+    					</ul>
+    					<div class="bg_corner">
+    						<span class="rt"></span>
+    						<span class="lb"></span>
+    					</div>
+    				</div>
+
+    				<div class="main_area">
+    					<div class="tit_area">
+    						<h2>Game/Tech</h2>
+    						<a href="/ne/board/listByArea/47" class="btn_more" name="main_more">more</a>
+    					</div>
+    					<table class="tb_type">
+    					<colgroup>
+    					<col>
+    					<col style="width:51px">
+    					</colgroup>
+    					<thead class="blind">
+    					<tr>
+    						<th scope="col" class="blind">제목</th>
+    						<th scope="col" class="blind">작성일</th>
+    					</tr>
+    					</thead>
+    					<tbody>
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158350">[아이디어/개선의견/Dooray메신저] 두레이 메신져 개선의견</a>  
+    													<em class=bu_new><span class=blind>New</span></em>
+    												</p>
+    											</td>
+    											<td><p class="date">2시간전</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158340">[기술공유] [FE Weekly Pick #122] Front-End 테스트 환경 1) 간단하게 테스트 환경 구축하기</a> <span class=num>[1]</span> 
+    													<em class=bu_new><span class=blind>New</span></em>
+    												</p>
+    											</td>
+    											<td><p class="date">8시간전</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158333">[기술공유] 프론트엔드 테스트 구축기 - 코드 커버리지</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.29</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158314">[기술공유] 자바8에서 무엇이 문제인가? 모나드편</a> <span class=num>[3]</span> 
+    												</p>
+    											</td>
+    											<td><p class="date">08.29</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158300">[기술공유] Android O 동작 변경 사항 (1)</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158299">[기술공유] Android O 동작 변경 사항 (2)</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158298">[기술공유] Android O 동작 변경 사항 (3)</a> <span class=num>[1]</span> 
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158268">[보안/인프라/플랫폼릴리즈] [DBSafer] 08/28(월) 06:00 ~ 08:00 점검 공지</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.25</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158267">[보안/인프라/플랫폼릴리즈] [완료] Linux Gateway 로그인 장애 복구완료</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.25</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/47/158265">[보안/인프라/플랫폼릴리즈] Linux gateway 로그인 장애 공지</a> <span class=num>[2]</span> 
+    												</p>
+    											</td>
+    											<td><p class="date">08.25</p></td>
+    										</tr>
+
+    					</tbody>
+    					</table>
+    				</div>
+
+    				<div class="main_area">
+    					<div class="tit_area">
+    						<h2>Work</h2>
+    						<a href="/ne/board/listByArea/48" class="btn_more" name="main_more">more</a>
+    					</div>
+    					<table class="tb_type">
+    					<colgroup>
+    					<col>
+    					<col style="width:51px">
+    					</colgroup>
+    					<thead class="blind">
+    					<tr>
+    						<th scope="col" class="blind">제목</th>
+    						<th scope="col" class="blind">작성일</th>
+    					</tr>
+    					</thead>
+    					<tbody>
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158342">[보도자료] NHN페이코, 추석맞이 기업 대상 '페이코 상품권' 판매</a>  
+    													<em class=bu_new><span class=blind>New</span></em>
+    												</p>
+    											</td>
+    											<td><p class="date">7시간전</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158336">[뉴스클립] [2017-08-30] 박천오 피앤피시큐어 대표 “올해 270억 매출 목표, 수출에 총력” 外</a>  
+    													<em class=bu_ne
+1ff8
+w><span class=blind>New</span></em>
+    												</p>
+    											</td>
+    											<td><p class="date">10시간전</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158311">[뉴스클립] [2017-08-29] 리니지·스타크래프트의 귀환 … 게임시장 '아재'들이 다시 떴다  外</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.29</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158305">[보도자료] NHN엔터, 개인용 클라우드 서비스 ‘토스트 드라이브’ 출시</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158303">[인사/교육] [세미나] AceCounter 사용법 교육</a> <span class=num>[120]</span> 
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158294">[경조사] [결혼] PAYCO전략팀 김화진 전임님, 결혼을 축하드립니다.</a> <span class=num>[23]</span> 
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158273">[뉴스클립] [2017-08-28] 간편결제 '2强 2中' 구도… 올 시장 규모 10조원 넘어설 듯 外</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.28</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158247">[뉴스클립] [2017-08-25] NHN엔터, 개인용 클라우드 파일관리서비스 시범 출시 外</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.25</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158224">[뉴스클립] [2017-08-24] 중국판 카카오뱅크 뜬다…中 바이두 다이렉트은행 설립 外</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.24</p></td>
+    										</tr>
+
+    										<tr>
+    											<td>
+    												<p class="tit">
+    					 
+    													<a href="/ne/board/viewByArea/48/158203">[뉴스클립] [2017-08-23]'프렌즈팝' 갈등 해소…NHN엔터·카카오 재계약 합의 外</a>  
+    												</p>
+    											</td>
+    											<td><p class="date">08.23</p></td>
+    										</tr>
+
+    					</tbody>
+    					</table>
+    				</div>
+
+
+
+    <div class="desk_area"><a href="#" id="id_myDesk_setting" class="btn_desk">My Desk 설정</a></div>
+</div>
+
+    <!-- Piwik -->
+    <script type="text/javascript">
+        var _paq = _paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="//10.161.213.229/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '1']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Piwik Code -->
+
+    <script type="text/javascript">
+        var bob = window.bobData = window.bobData || [];
+
+        (function() {
+            function bobStart() {
+                bob.push(['setInfo', '41LZjOZnHaLnMdY0ZptC', 'NE11877']);                     // 사용자 정보 셋팅
+                bob.push(["bStart"]);                                                       // 수집 기능 실행 셋팅
+
+                var b = document.createElement('script');
+                b.src = 'http://owl.dn.toastoven.net/bobbing.min.js';                       // Device Fingerprint SDK 경로
+                document.body.appendChild(b);
+            }
+            // 페이지 로딩 시 SDK 실행 함수 attach
+            if (window.attachEvent) {
+                window.attachEvent('onload', bobStart);
+            } else {
+                window.addEventListener('load', bobStart, false);
+            }
+        })();
+    </script><!-- 한게임 법인의 경우만 MyTask 아이콘을 인라인으로 처리 -->
+		<style type="text/css">
+			.aside .task_area .lst_task li{position:relative;overflow:hidden;margin:0;padding:7px 10px 7px 5px;font-size:12px;zoom:1;border-top:1px solid #eaeaea}
+			.aside .task_area .lst_task li .tit{overflow:hidden;float:left;padding:6px 0 5px 40px;background:url(http://static.nhnent.com/static/site/whatsup/resources_ent/img/ico_task.png?ver=20150118) no-repeat;color:#414141;line-height:15px}
+			.aside .task_area .lst_task li .bu_drag{display:none;position:absolute;top:50%;left:0;width:3px;height:13px;margin-top:-7px;padding-right:6px;vertical-align:middle}
+			
+			.aside .task_area .lst_task li .task_ico_easy{display:block;min-height:22px;line-height:22px;vertical-align:middle;text-decoration:none}
+			
+			.aside .task_area .lst_task li .ico_v20_easy .tit{background-position:0 -300px} 
+			.aside .task_area .lst_task li .ico_v21_easy .tit{background-position:0 -330px} 
+			.aside .task_area .lst_task li .ico_v22_easy .tit{background-position:0 -360px} 
+			.aside .task_area .lst_task li .ico_v23_easy .tit{background-position:0 -390px} 
+			.aside .task_area .lst_task li .ico_v24_easy .tit{background-position:0 -420px} 
+			.aside .task_area .lst_task li .ico_v25_easy .tit{background-position:0 -450px} 
+			.aside .task_area .lst_task li .ico_v26_easy .tit{background-position:0 -480px} 
+			.aside .task_area .lst_task li .ico_v27_easy .tit{background-position:0 -510px} 
+			.aside .task_area .lst_task li .ico_v28_easy .tit{background-position:0 -540px} 
+		</style>
+
+	<form id="formMyTaskList" name="formMyTaskList" action="" method="post"></form>
+
+    		<input type="hidden" name="sortOrder" id="sortOrder" value="" />
+
+            <div class="aside">
+
+
+               <!-- MyTask 영역 -->
+	                <div class="task_area">
+	                    <ul id="sortable-list" class="lst_task">
+		                    <!-- 내부망으로 접속시 전체 정보를 노출한다. -->
+				                    	<li id="item1" title="304527" onmouseover="taskListOver(this);" onmouseout="taskListOut(this);" class="lineitem">
+				                    		<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+				                    		<div class="task_ico ico_v2">	                 		
+				                    			<a href='#'  onClick='fnClickMyTaskName("182", "BLANK", "http://apms.nhnent.com", "popupMyTask304527", "", "", "")' class='tit' subPopupCode=''>결재할 문서</a>	                   		                   		
+				                    			<a href='#' onClick='fnClickMyTaskCount("182", "BLANK", "http://apms.nhnent.com/app/apprvList/process/req", "popupMyTask304527Count", "", "")' class='num' id='id_myTaskCnt_304527'>&nbsp;</a>                			
+				                     		</div>
+				                    	</li>
+									<!-- 내부망으로 접속시 전체 정보를 노출한다. -->
+				                    	<li id="item2" title="304528" onmouseover="taskListOver(this);" onmouseout="taskListOut(this);" class="lineitem">
+				                    		<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+				                    		<div class="task_ico ico_v12">	                 		
+				                    			<a h
+1ff8
+ref='#'  onClick='fnClickMyTaskName("179", "BLANK", "http://infracm.nhnent.com/", "popupMyTask304528", "0", "0", "")' class='tit' subPopupCode=''>메일링그룹</a>	                   		                   		
+				                    			<a href='#' onClick='fnClickMyTaskCount("179", "BLANK", "", "popupMyTask304528Count", "0", "0")' class='num' id='id_myTaskCnt_304528'>&nbsp;</a>                			
+				                     		</div>
+				                    	</li>
+									<!-- 내부망으로 접속시 전체 정보를 노출한다. -->
+				                    	<li id="item3" title="304529" onmouseover="taskListOver(this);" onmouseout="taskListOut(this);" class="lineitem">
+				                    		<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>
+				                    		<div class="task_ico ico_v11">	                 		
+				                    			<a href='#'  onClick='fnClickMyTaskName("188", "POPUP", "http://whatsup.nhnent.com/guide/", "popupMyTask304529", "1450", "810", "")' class='tit' subPopupCode=''>업무지원가이드</a>	                   		                   		
+				                    			<a href='#' onClick='fnClickMyTaskCount("188", "POPUP", "", "popupMyTask304529Count", "", "")' class='num' id='id_myTaskCnt_304529'>&nbsp;</a>                			
+				                     		</div>
+				                    	</li>
+									</ul>
+	                    
+	                    <a href="#" id="id_myTask_setting" class="btn_task">
+	                    	My Task 설정</a>
+	
+	                    <!-- [D] 레이어 위치는 수동으로 변경해주세요. n번째 메뉴에서 레이어의 위치 top:35(n-1)+20px -->
+	                    <div id="myTaskNtreeLayer" class="ly ly_aside" ntreeLayer="true" >
+	                        <ul>
+		                        <li id="myTaskNtreeLayerNode1"><a href="#" target="_blank"><span>승인대기함</span></a> <em>-</em></li>
+		                        <li id="myTaskNtreeLayerNode2"><a href="#" target="_blank"><span>만족도평가함</span></a> <em>-</em></li>
+		                        <li id="myTaskNtreeLayerNode3"><a href="#" target="_blank"><span>처리할문서</span></a> <em>-</em></li>
+	                        </ul>
+	                    </div>
+	                    <div id="myTaskBTSLayer" class="ly ly_aside" btsLayer="true">
+	                        <ul>
+	                        	<li><a href="#"><span>BTS1</span> <em>-</em></a></li>
+	                        	<li><a href="#"><span>BTS2</span> <em>-</em></a></li>
+	                        	<li><a href="#"><span>BTS3</span> <em>-</em></a></li>
+	                        </ul>
+	                    </div>                    
+	                </div>               
+				<!-- 기타 링크 영역 -->
+				<!-- 기타 링크 A 타입 (국내법인) -->
+							<div class="other_area">
+				                    <ul>
+				                    	<li><a href="#" onclick="goSVC('sms');">SMS<br>보내기</a></li>
+				                    	<li><a href="#" onclick="goSVC('trans');">한일<br>번역기</a></li>
+				                    	<li><a href="#" onclick="goSVC('secu_report');">보안<br/>신고</a></li>
+											</ul>
+				                </div>   							
+							<!-- 배너 영역 -->
+		                <div class="banner_area">
+		                    <div class="banner_wrap" id="bannerInjectArea">
+		                        </div>
+		                    <div class="btn_wrap">
+		                        <span class="btn prev off" onclick="prevImgRolling();" onmouseover="j$(this).removeClass('off');" onmouseout="j$(this).addClass('off');"><button type="button" title="PREV"><span class="blind">이전</span></button></span>
+		                        <span class="btn next off" onclick="nextImgRolling();" onmouseover="j$(this).removeClass('off');" onmouseout="j$(this).addClass('off');"><button type="button" title="NEXT"><span class="blind">다음</span></button></span>
+		                        </div>
+		                </div>
+	                </div>
+
+
+
+
+			<script type="text/JavaScript">
+    var j$ = jQuery.noConflict();
+    
+    j$(document).ready(function(){
+
+    	// D&D 설정
+		var sortObj = j$('#sortOrder');
+    	
+    	resetSordInfo(sortObj);	// D&D 소트값 갱신    	
+    	setMyTaskDnD(sortObj);	// D&D 이벤트 설정
+
+    	
+    	// MyTask 카운트 조회
+    	refreshTaskCount();
+
+    	if(j$('#apibtsnhncorpcom').length > 0) {
+    		// MyTask BTS 카운트 조회
+    		refreshBtsCount();
+    	}
+
+
+    	
+			// 배너를 초기화 한다.
+    		drawBanner();
+		
+
+    });
+</script>
+
+
+
+
+<script type="text/JavaScript">   
+    
+    //==========================================================================
+    // My Task
+    //==========================================================================
+    
+    // MyTask 카운트 갱신
+    function refreshTaskCount() {
+    	getJsonDatas('/ne/externalTaskAjax');
+    	setTimeout("refreshTaskCount()", (10 * 60) * 1000);	// 10분 단위로 카운트 갱신
+    }    
+    // BTS를 제외한 모든 MyTask 카운트 조회
+	// 카운트가 없는 항목의 경우 : ""
+	// 카운트가 있는 항목의 경우 로딩에 실패한 경우 : "-"
+	// 카운트가 있는 항목의 경우 로딩에 성공한 경우 : "5" 
+    function getJsonDatas(url) {
+    	j$.ajax({
+        	url : url,
+        	dataType : 'json',
+        	cache: false,
+        	success : function(data) {
+        		j$.each(data, function() {
+        			// NTREE 코드는 서브레이어까지 갱신시켜준다.
+        			try {
+            			if (this['subPopupCode'] == 'NTREE') {
+            				j$('#myTaskNtreeLayerNode1').find('em').html(j$.parseJSON(this['resultJson']).Item.ApprCount.Value); 
+            				j$('#myTaskNtreeLayerNode1').find('a').attr('href', j$.parseJSON(this['resultJson']).Item.ApprCount.moreURL); 		
+               				j$('#myTaskNtreeLayerNode2').find('em').html(j$.parseJSON(this['resultJson']).Item.SatisCount.Value); 
+            				j$('#myTaskNtreeLayerNode2').find('a').attr('href', j$.parseJSON(this['resultJson']).Item.SatisCount.moreURL); 		
+               				j$('#myTaskNtreeLayerNode3').find('em').html(j$.parseJSON(this['resultJson']).Item.ProcCount.Value); 
+            				j$('#myTaskNtreeLayerNode3').find('a').attr('href', j$.parseJSON(this['resultJson']).Item.ProcCount.moreURL); 		
+            				
+            				j$('#id_myTaskCnt_'+this['taskId']).text(this['taskCount']);
+            			
+            			} else {
+            				j$('#id_myTaskCnt_'+this['taskId']).text(this['taskCount']);	
+            			}
+        				
+        			} catch(e) {}
+        		});
+        	}
+        });
+    }
+
+    
+    
+    // BTS 카운트 갱신
+    function refreshBtsCount() {
+    	getJsonData('/ne/externalTaskAjax/pagelet/btsTaskAjax');
+    }
+    // BTS를 제외한 모든 MyTask 카운트 조회
+	// 카운트가 없는 항목의 경우 : ""
+	// 카운트가 있는 항목의 경우 로딩에 실패한 경우 : "-"
+	// 카운트가 있는 항목의 경우 로딩에 성공한 경우 : "5" 
+    function getJsonData(url) {
+    	j$.ajax({
+        	url : url,
+        	dataType : 'json',
+        	cache: false,
+        	success : function(data) {
+        		if(null != data) {
+        			j$('#id_myTaskCnt_'+data['taskId']).text(data['taskCount']);
+        		}
+        	}
+        });
+    }
+
+
+    
+    function resetSordInfo(sortObj) {
+    	var sortValue = "";
+    	
+    		sortValue += '304527';
+	    sortValue += ','
+    		sortValue += '304528';
+	    sortValue += ','
+    		sortValue += '304529';
+	    
+	    sortObj.val(sortValue);
+	}
+
+    function setMyTaskDnD(sortInput) {
+		var list = j$('#sortable-list');
+
+		var request = function() {
+		   j$.ajax({
+			    data: 'sortOrder=' + sortInput[0].value,
+			    type: 'post',
+			    url: '/ne/externalTaskAjax/pagelet/sortOrder'
+		   });
+		};
+
+		var fnSubmit = function(save) {
+		  var sortOrder = [];
+
+		  list.children('li').each(function(){
+		    sortOrder.push(j$(this).data('id'));
+		  });
+		  sortI
+1ff8
+nput.val(sortOrder.join(','));
+		  if(save) {
+		    request();
+		  }
+		};
+
+		list.children('li').each(function() {
+		  var li = j$(this);
+		  li.data('id',li.attr('title')).attr('title','');
+		});
+
+		list.sortable({
+		  opacity: 0.7,
+		  update: function() {
+		    fnSubmit(true);
+		  }
+		});
+		list.disableSelection();
+    }
+    
+    
+	// MyTask 설정 레이어 팝업 닫기
+	function closeMyTaskLayer() {
+		j$('#myTaskSettingLayer').hide();
+	}
+
+    // MyTask 설정 레이어 팝업 열기
+	j$('#id_myTask_setting').click(function(e) {
+		e.preventDefault();
+
+		
+				
+		
+		// Layer 오픈시 무시 
+		var objLayer = j$('#myTaskSettingLayer');		
+		if(objLayer.css('display') != 'none' ) {
+			return;
+		}
+		
+		// Layer 높이를 계산한다. 
+		var windowPosition
+		if (e.pageY < 300) {
+			windowPosition = 200;
+		} else {
+			windowPosition = e.pageY - 260;
+		}
+		objLayer.css('top', windowPosition+'px');	
+
+	
+		j$('#formMyTaskList').empty();
+		j$('#myTaskSettingLayer').show();
+		j$.ajax({
+		 	dataType : 'json',
+		 	cache : false,
+            url: '/ne/externalTaskAjax/pagelet/setMyTaskAjax',
+            beforeSend : function() {
+            	j$('#myTaskSettingLayer ul').html('<li style="width:270px; text-align:center"><img src="http://static.nhnent.com/static/site/myNext/1.0.0/img/ajax-loader.gif"/></li>');
+			},
+            success: function(data) {
+            	// 모든 리스트를 그린다.
+            	var allList = '';
+            	j$.each(data[0], function() {
+           			allList += '<li id="taskRow'+this.externalTaskId+'">';
+           			allList += '<input type="checkbox" id="task'+this.externalTaskId+'" targetId=""><label for="task'+this.externalTaskId+'" onclick="choiceMyTask(\''+this.externalTaskId+'\');">'+this.taskName+'</label>';
+           			allList += '</li>';
+           			j$('<input type="hidden" name="externalTaskIds" id="taskHidden'+this.externalTaskId+'" value="">').appendTo('#formMyTaskList');
+        		});
+				j$('#myTaskSettingLayer ul').html(allList);
+				
+				// 사용자가 선택한 항목을 체크 처리한다.
+				j$.each(data[1], function() {
+					j$('#task'+this.externalTaskId).attr('checked', true);
+				 	j$('#taskRow'+this.externalTaskId).addClass("on");
+				 	
+          			j$('#taskHidden'+this.externalTaskId).val(this.externalTaskId);
+				});
+            }
+        });
+	});    
+   
+
+	// MyTask 설정 레이어 팝업 체크 
+	function choiceMyTask(liId) {
+		var taskRowLiId = j$('#taskRow'+liId);
+		var taskHiddenLiId = j$('#taskHidden'+liId);
+
+		try {
+			if(taskRowLiId.hasClass('on')) {
+				taskRowLiId.removeAttr("class");
+				taskHiddenLiId.val('');
+			} else {
+				taskRowLiId.addClass('on');
+				taskHiddenLiId.val(liId);
+			}
+		} catch(e) {
+
+		} finally {
+			taskRowLiId = null;
+			taskHiddenLiId = null;
+		}
+
+	}
+	
+	// MyTask 설정 저장
+	function saveMyTask() {
+		var sendFrmUrl = '/ne/externalTaskAjax/pagelet/saveMyTaskAjax';
+		var string = j$("form[name=formMyTaskList]").serialize();
+
+		try {
+			j$.ajax({
+			   type: "POST",
+			   url: sendFrmUrl,
+			   data: string,
+			   success : function(result) {
+				   closeMyTaskLayer();
+				   refreshMyTask();
+			     }
+			});
+		} catch (e) {
+
+		} finally {
+			sendFrmUrl = null;
+			string = null;
+		}
+
+	}
+	
+	// MyTask 리프레쉬
+	function refreshMyTask() {
+		j$.ajax({
+		 	dataType : 'json',
+            url: '/ne/externalTaskAjax/pagelet/refreshMyTaskAjax',
+            cache : false,
+            beforeSend : function() {
+            	j$('#sortable-list').html('<li><img src="http://static.nhnent.com/static/site/myNext/1.0.0/img/ajax-loader.gif"/></li>');
+			},
+            success: function(data) {
+            	var refreshAllList = '';
+            	var countTag = 1;
+            	var sortValue = "";
+            	var strSubPopupCode = "";
+            	
+            	// 화면 Redraw (카운트 정보는 없다.)
+            	j$.each(data, function() {
+            		refreshAllList += '<li id="item'+countTag+'" onmouseover="taskListOver(this);" onmouseout="taskListOut(this);" title="'+this.taskId+'">';
+            		refreshAllList += '<span title="위치변경" class="bu_drag"><span class="blind">위치변경</span></span>';
+            		refreshAllList += '<div class="'+this.icon+'">';
+
+            		// MyTask 명칭
+            		strSubPopupCode = "";
+            		if (null != this.subPopupCode) {
+            			strSubPopupCode = this.subPopupCode;
+            		}
+            		refreshAllList += '<a href="#"  onClick=\'fnClickMyTaskName("' + this.externalTaskId + '", "'+ this.taskUrlLinkType +'", "'+ this.taskUrl +'", "popupMyTask' + this.taskId + '", "' + this.taskUrlPopupWidth + '", "' + this.taskUrlPopupHeight+'", "' + strSubPopupCode+'")\' class="tit" subPopupCode="' + strSubPopupCode + '">' + this.taskName + '</a>';
+            		
+            		// MyTask 카운트
+            		refreshAllList += '<a href="#" onClick=\'fnClickMyTaskCount("' + this.externalTaskId + '", "'+ this.taskUrlLinkType +'", "'+ this.countUrl +'", "popupMyTask' + this.taskId + 'Count", "' + this.countUrlPopupWidth + '", "' + this.countUrlPopupHeight+'")\' class="num" id="id_myTaskCnt_'+this.taskId+'" >&nbsp;</a>';
+            		
+            		refreshAllList += '</div>';
+            		refreshAllList += '</li>';
+            		if (countTag > 1) {
+            			sortValue += ',';
+            		}
+            		sortValue += this.taskId;
+            		countTag++;
+            	});
+            	j$('#sortable-list').html(refreshAllList);
+            	
+            	
+            	// D&D 설정
+            	var sortObj = j$('#sortOrder');
+            	
+            	sortObj.val(sortValue);	// D&D 소트값 갱신
+				setMyTaskDnD(sortObj);	// D&D 이벤트 설정
+
+				
+            	// 카운트 Refresh 모드
+            	refreshTaskCount();
+            	
+				
+            	refreshAllList = null;
+            	countTag = null;
+            	sortObj = null;
+            	sortValue = null;
+            	strSubPopupCode = null;
+            }
+        });
+	}
+
+	function taskListOver(obj) {
+		j$(obj).addClass('ovr');
+	}
+
+	function taskListOut(obj) {
+		j$(obj).removeAttr('class');
+	}
+
+	// MyTask 명칭 클릭 처리
+	function fnClickMyTaskName(taskId, myTaskUrlLinkType, myTaskURL, myTaskId, myTaskWidth, myTaskHeight, subPopupCode) {
+		
+		//-------------------------------------------------------------------------------------------------
+		// LoggingCenter에 클릭 로그를 전송한다.
+		fnMyTaskAjaxPopupClickLogging('/ne/logging/pagelet/globalWriteLog', 'logCategory=Mytask&logAction=Link&logContext='+taskId);
+		//-------------------------------------------------------------------------------------------------
+		
+		if (subPopupCode == '') {
+			if (myTaskUrlLinkType == 'POPUP') {
+				popupWindowVoid(myTaskURL, myTaskId, myTaskWidth, myTaskHeight, 'scrollbars=yes,resizable=yes,toolbar=no,menubar=no,status=no', 'CENTER');	
+			} else {
+				window.open(myTaskURL, "_blank");
+			}
+			
+		} else {
+			
+			// 서브팝업 항목이 몇번째인지 구한다. 
+			var itemCnt = 0;
+			j$.each(j$('div.aside > div.task_area > ul > li > div').find('a.tit'), function(){
+				var obj = j$(this);
+				if (obj.attr('subPopupCode') == 'NTREE') {
+					// ntree 레이어 height를 구한다.
+					j$('#myTaskNtreeLayer').css('top', (35*(itemCnt+0)+20) + 'px');
+				}
+				if (obj.attr('subPopupCode') == 'BTS') {
+					// ntree 레이어 height를 구한다.
+					j$('#myTaskBTSLayer').css('top', (35*(itemCnt+0)+20) + 'px');
+				}
+				itemCnt++;
+			});			
+			
+			// 레이어를 오픈한다.
+			j$.each(j$('div.aside > div.task_area').find('div'), function(){
+	        	var obj = j$(this);
+	        	
+	        	if (subPopupCode == 'NTREE') {
+		            if ( obj.attr('ntreeLayer')  == "true" ) {
+	                     if(obj.css('display') == 'none') {
+	                    	 obj.show();
+	                     } else {
+	                    	 obj.hide();
+	                     }
+		            }	   
+	       
+1ff8
+ 	}
+	        });			
+		}
+	}
+	
+	// MyTask 카운트 클릭 처리
+	function fnClickMyTaskCount(taskId, myTaskUrlLinkType, myTaskURL, myTaskId, myTaskWidth, myTaskHeight) {
+
+		//-------------------------------------------------------------------------------------------------
+		// LoggingCenter에 클릭 로그를 전송한다.
+		fnMyTaskAjaxPopupClickLogging('/ne/logging/pagelet/globalWriteLog', 'logCategory=Mytask&logAction=Count&logContext='+taskId);
+		//-------------------------------------------------------------------------------------------------
+
+		if (myTaskUrlLinkType == 'POPUP') {
+			popupWindowVoid(myTaskURL, myTaskId, myTaskWidth, myTaskHeight, 'scrollbars=yes,resizable=yes,toolbar=no,menubar=no,status=no', 'CENTER');
+		} else {
+			window.open(myTaskURL, "_blank");
+		}		
+	}
+	
+ 	// MyTask 클릭 로깅 처리 (로깅 후 팝업창) 
+    var _gMyTaskClickLoggingTimer;
+    
+ 	function fnMyTaskAjaxPopupClickLogging(strUrl, strParam) {
+    	clearTimeout(_gMyTaskClickLoggingTimer);
+    	_gMyTaskClickLoggingTimer = setTimeout("fnMyTaskSetClickLogging('" + strUrl + "', '" + strParam + "')", 10);
+    }
+    
+ 	function fnMyTaskSetClickLogging(strUrl, strParam) {
+    	jQuery.ajax({
+    		type: "get",
+    		cache: false,
+    		url: strUrl,
+    		data: strParam,
+    		dataType : "jsonp",
+    		jsonp : "callback",
+    		timeout: 1000,
+    		success: function(jsonData) {
+    			//if (jsonData != null) { alert(jsonData); }
+    		},
+    		error: function(xhr, info) {}
+    	});	
+    }
+	
+	
+	
+    
+	//==========================================================================
+    // 배너
+    //==========================================================================
+	function getBannerIteamPlayTime(playTime) {
+		return ( (null == playTime) || (playTime.length < 1) ) ? 5 : playTime;
+	}
+
+	function getSplitSize(str) {
+		var obj = new Object();
+		var opts;
+
+		try {
+			if(null == str || str.length < 1) {
+				obj = {height : 116 , width : 180};
+			} else {
+				opts = str.split("_~");
+				obj = {height : (opts[1])*1, width : (opts[0])*1};
+			}
+
+			return obj;
+		} catch (e){
+		} finally {
+			obj = null;
+			opts = null;
+		}
+	}
+
+	function checkIEVersion10(){
+		var isIE10 = false;
+		if( navigator.userAgent.match(/Trident\/(\d.\d)/i) != null ) {
+			if( navigator.userAgent.match(/Trident\/(\d.\d)/i)[1] == '6.0' ){
+				isIE10 = true;	
+			}
+		}
+		return isIE10;
+	}
+	
+	function checkAppleDevice() {
+		var isiPad = navigator.userAgent.match(/iPad/i) != null;
+		var ua = navigator.userAgent;
+		var isiPad = /iPad/i.test(ua) || /iPhone OS 3_1_2/i.test(ua) || /iPhone OS 3_2_2/i.test(ua);
+		return isiPad;
+	}
+
+	function openBanner(linkUrl, popupOpt) {
+		// 팝업 여부 N 인경우 조건 추가 (added by j.e.a 2013.05.13)
+		if (popupOpt == null || popupOpt == "" || popupOpt == "N") {
+			var tmpNewWindow = window.open("");
+			tmpNewWindow.location.href = linkUrl;
+		} else {
+			var opts = popupOpt.split("_~");
+			popupWindow(linkUrl, "bannerWin", opts[0], opts[1], "scrollbars="+opts[2]+",resizable="+opts[3]+",toolbar=no,menubar=no,status=no", "CENTER");
+		}
+	}   
+    
+
+	
+	// ---------------------------------------------------------
+	// 배너 정보를 HTML 코드로 생성한다.
+	// ---------------------------------------------------------
+	var _gBannerArray = new Array();
+	var _gBannerTimeArray = new Array();
+	
+	function drawBanner() {
+		try {
+			var jsonData = eval('[{"playTime":"5","linkUrl":"http://www.nhnent.com/","itemOpt":"180_~116","itemType":"I","errorUrl":"","seq":0,"popup_opt":"N","corp":"NE","itemUrl":"http://pt.nhnent.com/banner/filedownload.nhn?m=newFileDownLoad&atchFile.atchSeq=1&atchFile.atchId=BI130824000279"},{"playTime":"5","linkUrl":"http://www.hangame.com","itemOpt":"180_~116","itemType":"I","errorUrl":"","seq":1,"popup_opt":"N","corp":"NE","itemUrl":"http://pt.nhnent.com/banner/filedownload.nhn?m=newFileDownLoad&atchFile.atchSeq=1&atchFile.atchId=BI130824000280"},{"playTime":"5","linkUrl":"http://www.nhnent.com/","itemOpt":"180_~116","itemType":"I","errorUrl":"","seq":1,"popup_opt":"N","corp":"NE","itemUrl":"http://pt.nhnent.com/banner/filedownload.nhn?m=newFileDownLoad&atchFile.atchSeq=1&atchFile.atchId=BI141211000404"},{"playTime":"5","linkUrl":"http://whatsup.nhnent.com/shortCut/boardArticle/124944","itemOpt":"180_~116","itemType":"I","errorUrl":"","seq":2,"popup_opt":"N","corp":"NE","itemUrl":"http://pt.nhnent.com/banner/filedownload.nhn?m=newFileDownLoad&atchFile.atchSeq=1&atchFile.atchId=BI130824000281"},{"playTime":"5","linkUrl":"http://whatsup.nhnent.com/guide/owfs/download/466/814d41bc-6a6f-4a5c-976a-79d5b11baf6b","itemOpt":"180_~116","itemType":"I","errorUrl":"","seq":3,"popup_opt":"N","corp":"NE","itemUrl":"http://pt.nhnent.com/banner/filedownload.nhn?m=newFileDownLoad&atchFile.atchSeq=1&atchFile.atchId=BI161216000464"},{"playTime":"5","linkUrl":"http://www.toast.com","itemOpt":"180_~116","itemType":"I","errorUrl":"","seq":4,"popup_opt":"N","corp":"NE","itemUrl":"http://pt.nhnent.com/banner/filedownload.nhn?m=newFileDownLoad&atchFile.atchSeq=1&atchFile.atchId=BI130903000296"}]');
+			
+			var isSuccess = false;
+			
+			var stepCount = 0;
+	        var html = '';
+
+	        // 배너 정보를 생성하여 Array에 담는다.
+			j$.each(jsonData, function() {
+				
+				html = '<ul id="id_connectBanner_'+stepCount+'">';				
+				if (this.itemType == 'I') {
+					
+					// 이미지 타입 (img)
+					html = html + '<li>';
+					html = html + '	<a href="javascript:openBanner(\''+this.linkUrl+'\',\''+this.popup_opt+'\');">';
+					html = html + '	 <img src="'+this.itemUrl+'" width="'+getSplitSize(this.itemOpt).width+'" height="'+getSplitSize(this.itemOpt).height+'" alt="">';
+					html = html + '	</a>';
+					html = html + '</li>';
+					
+					isSuccess = true;
+					
+				} else if (this.itemType == 'U') {
+					
+					// URL 타입 (iframe)
+					html = html + '<li>';
+					html = html + ' <iframe width="'+getSplitSize(this.itemOpt).width+'" height="'+getSplitSize(this.itemOpt).height+'" src="'+this.itemUrl+'" border="0" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" align="center"></iframe>';
+					html = html + '</li>';
+					
+					isSuccess = true;
+					
+				} else if (this.itemType == 'F') {
+					
+					// 플래시 타입 (iframe or img)
+					if(!checkAppleDevice() && !checkIEVersion10()) {
+						html = html + '<li>';
+						html = html + ' <iframe width="'+getSplitSize(this.itemOpt).width+'" height="'+getSplitSize(this.itemOpt).height+'" src="'+this.itemUrl+'" border="0" frameBorder="0" marginWidth="0" marginHeight="0" scrolling="no" align="center"></iframe>';
+						html = html + '</li>';
+					} else {
+						html = html + '<li>';
+						html = html + ' <img src="'+this.errorUrl+'" width="'+getSplitSize(this.itemOpt).width+'" height="'+getSplitSize(this.itemOpt).height+'" alt="">';
+						html = html + '</li>';
+					}
+					
+					isSuccess = true;
+				}
+				html = html + '</ul>';
+				
+				if (isSuccess) {
+					_gBannerArray[stepCount] = html;
+					_gBannerTimeArray[stepCount] = getBannerIteamPlayTime(this.playTime);
+					
+					stepCount++;	
+				}				
+			});
+	        
+			// 생성된 첫번째 배너 HTML을 그린다.
+			j$("#bannerInjectArea").empty().html(_gBannerArray[0]);			
+			
+	        // 배너 롤링 시작
+			rollingBanner();
+			
+		} catch(e) {
+			
+		} finally {
+			jsonData = null;
+			stepCount = null;
+			html = null;
+		}
+	}
+
+	
+	// ---------------------------------------------------------
+	// 배너를 롤링한다.
+	// ---------------------------------------------------------
+	var _gDispNum = 1;
+	var _gRollingBannerTimer = null;
+	
+	function rollingBanner() {
+		//---------------------------------------------------------------
+		// 다음 배너 HTML을 그린다.
+		j$("#bannerInjectArea").empty().html(_gBannerArray[_gDispNum-1]);
+		//---------------------------------------------------------------
+		stopRoollingTimer();
+		startRoollingTimer((_gBannerTimeArray[(_gDispNum-1)]));
+		_gDispNum++;
+		if (_gBannerArray.length < _gDispNum) _gDis
+1ff8
+pNum = 1;
+	}
+
+	function prevImgRolling(){
+		_gDispNum = _gDispNum - 1;
+		if (_gDispNum <= 0) _gDispNum = _gBannerArray.length;
+		//---------------------------------------------------------------
+		// 이전 배너 HTML을 그린다.
+		j$("#bannerInjectArea").empty().html(_gBannerArray[_gDispNum-1]);
+		//---------------------------------------------------------------
+		stopRoollingTimer();
+		startRoollingTimer((_gBannerTimeArray[(_gDispNum-1)]));
+	}
+
+	function nextImgRolling(){
+		rollingBanner();
+	}
+
+	function startRoollingTimer(time) {
+		_gRollingBannerTimer = window.setTimeout("rollingBanner()", 1000 * time);
+		time = null;
+	}
+
+	function stopRoollingTimer() {
+		window.clearTimeout(_gRollingBannerTimer);
+		_gRollingBannerTimer = null;
+	}
+
+    
+    
+	
+    
+	//==========================================================================
+    // 팝업 (전화, SMS, 번역기)
+    //==========================================================================
+
+	// 2580 전화기 호출 정보를 초기화 한다.
+	
+	
+	var m_tel2580Url1 = 'http://iptc2c.nhnent.com/address/getPhoneStatusInfo.do?userID=NE11877';
+	var m_tel2580Url2 = 'http://iptc2c.nhnent.com/webdialer/makeCall.do?userID=NE11877';
+		
+	var m_msgPNetAlert = '외부망에서는 사용할 수 없습니다.';
+	
+	
+	
+	function goSVC(gubun){
+		var url= "";
+		var searchVal= "";
+		var param= "";
+
+		var width= "";
+		var height= "";
+
+		var popLeft= "";
+		var popTop= "";
+
+		if("sms" == gubun){
+			// SMS 보내기
+			
+					url = "http://orguser.nhnent.com/multiSms.nhn";
+					width = 240;
+					height = 430;
+				
+
+		} else if("trans" == gubun){
+        	// 한일변역기
+			url = "http://translate.naver.com/#/ko/ja";
+			width = 620;
+			height = 700;
+		
+		} else if("transEng" == gubun){
+        	// 한영번역기
+			url = "http://translate.google.com/#ko/en/";
+			width = 800;
+			height = 500;
+		
+		} else if("msg" == gubun){
+			// 사내메신저
+			url = "http://whatsup.nhn-playart.com/shortCut/boardArticle/146410";
+			width = 800;
+			height = 600;
+			
+		} else if ("sectomail" == gubun){ 
+			// 보안담당메일
+			url = 'http://mail.worksmobile.com/write/popup/?to="' + encodeURI('보안센터') + '"' + '<security_ne@nhnent.com>';
+			width = 800;
+			height = 600;
+		
+		} else if ("tell" == gubun) {
+			// 2580 전화
+			
+					go2580(m_tel2580Url1, m_tel2580Url2);
+					return;
+				
+		
+		} else if ("tell2823" == gubun) {
+			// 보안담당 전화
+			
+					goSecCall('http://iptc2c.nhnent.com/address/getPhoneStatusInfo.do?userID=NE11877', 'http://iptc2c.nhnent.com/webdialer/makeCall.do?userID=NE11877', '2823');
+					return;
+				
+		
+		} else if ("tell3333" == gubun) {
+			// 물리보안 전화
+			
+					goSecCall('http://iptc2c.nhnent.com/address/getPhoneStatusInfo.do?userID=NE11877', 'http://iptc2c.nhnent.com/webdialer/makeCall.do?userID=NE11877', '3333');
+					return;
+				
+			
+		
+		} else if ("secu_report" == gubun) {
+			url = 'https://nhnent.dooray.com/popup/project/write/new/(%EB%B3%B4%EC%95%88)%EB%B3%B4%EC%95%88%EC%8B%A0%EA%B3%A0';
+			width = 800;
+			height = 680;
+		} else {
+			alert('Invalid Request.');
+			return;
+		}
+
+		var ScreenW = window.screen.width;
+	    var ScreenH = window.screen.height;
+
+		popLeft= (ScreenW-width)/2;
+		popTop= (ScreenH-height)/2 - 30;
+
+		j$("#searchVal").val("");
+		
+		window.open(url + param, "", "left="+ popLeft +", top="+ popTop +", width="+ width +", height="+ height +", menubar=no, toolbar=no, location=no, scrollbars=yes");
+	}
+
+	function goSite(url){
+		window.open(url, "_blank");
+		
+	}
+</script>
+
+
+
+
+            
+            
+            </div>
+			
+		</div>
+
+
+
+		<!--  Footer -->
+		<div id="footer">
+			<p><p>사내 대표문의 : 전화 2580 / 메일 2580play@nhnent.com</p>
+<p>Copyright ⓒ <!-- Not Allowed Attribute Filtered --><a href="http://www.nhnent.com/">NHN Ent Corp. </a> All Rights Reserved.</p>
+		</div>
+
+
+		<!-- Fade Out 효과 레이어 (공통) -->
+		<div id="bgLayer" class="ly_dim" style="background: #000000;filter:alpha(opacity=50);opacity:.5;"></div>
+
+
+		<!-- MyTask 설정창 레이어 -->
+		<div id="myTaskSettingLayer" class="ly ly_task" style="top:625px;margin-left:190px">
+           	<strong class="tit">
+           		설정</strong>
+			<ul></ul>
+			<div class="btn_wrap">
+				<a href="javascript:saveMyTask();" class="btn_mid">
+					<strong>확인</strong>
+				</a>
+			</div>
+			<a href="javascript:closeMyTaskLayer();" title="close" class="btn_clse"><span class="blind">close</span></a>
+		</div>
+
+		
+		
+		<!-- MyDesk 설정창 레이어 -->
+			<style type="text/css">
+				.ly_desk{display:block}
+
+				.desk_area {
+				  border-top-color: #EAEAEA;
+				  border-top-style: solid;
+				  border-top-width: 1px;
+				  margin-top: 34px;
+				  padding-top: 8px;
+				  text-align: right;
+				}
+				
+			</style>
+			
+			<div id="id_myDeskSettingLayer" class="ly ly_desk" style="display:none;top:325px;margin-left:-40px;height:100px">
+				<strong class="tit">
+					설정</strong>
+				<ul>
+					<li id="id_myDeskType_mail">
+						<input type="checkbox" id="desk1"><label for="desk1">NCS메일</label>
+					</li>
+					<li id="id_myDeskType_board">
+						<input type="checkbox" id="desk2"><label for="desk2">게시판</label>
+					</li>
+				</ul>
+				<div class="separate_line"></div>
+				<ul id="id_myDeskBoardList" class="scroll"></ul>
+				<div class="btn_wrap">
+					<a href="#" id="id_myDeskSave" class="btn_mid">
+						<strong>확인</strong>
+					</a>
+					<a href="#" id="id_myDeskReset" class="btn_mid">
+						<strong>RESET</strong>
+					</a>
+				</div>
+				<a href="#" id="id_myDeskClose" title="close" class="btn_clse"><span class="blind">close</span></a>
+			</div>			
+		</div>
+
+
+
+
+	<!-- jQuery UI -->
+	<script type="text/javascript" src="http://static.nhnent.com/static/libs/jquery.ui/1.8.20/js/jquery-ui.custom.min.js"></script>
+
+	<!-- jsTree (CSS는 충돌 문제로 제거함) -->
+	<script type="text/javascript" src="http://static.nhnent.com/static/libs/general-widget/jstree-1.0/_lib/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="http://static.nhnent.com/static/libs/general-widget/jstree-1.0/_lib/jquery.cookie.js"></script>
+
+	<!-- 사원검색 오른쪽 버튼 -->
+	<script type="text/javascript" src="http://static.nhnent.com/static/libs/ist/quickConnect/latest/js/QuickConnect.min.js?ver=20150118"></script>
+	<script type="text/JavaScript">
+	 	var QuickConnectOption = {
+	 			mode : 'live',     		// 실행모드 live(운영SSO 로그인시), dev(개발 SSO 로그인시) : 기본값 live
+				rightClick : true,      // 우클릭사용여부 : 기본값 true
+		        leftClick : true        // 좌클릭사용여부 : 기본값 true
+	    };
+ 	</script>
+
+	<!-- Custom 스크립트 -->
+	<script type="text/javascript" src="/resources/js/common-1.0.0.js?ver=20150118"></script>
+
+
+	
+	
+	<!-- ------------------------------------ -->
+    <!-- 메인화면의 경우만 링크 -->
+    <!-- ------------------------------------ -->
+	<!-- jQuery Rolling Data -->
+		<script type="text/javascript" src="/resources/js/main/jquery.rolling-connectFix.js?ver=20150118"></script>
+
+		<!-- 팝업공지 --> 
+		<script type="text/javascript" src="/resources/js/main/AjaxForCenter.js?ver=20150118"></script>
+		
+		<!-- Tension -->
+		<!-- 한게임 계열 -->
+			<script type="text/javascript" src="/resources/js/main/AjaxForCenterTensionBig.js?ver=20150118"></script>
+				<!-- 메일Review -->
+		<!-- 개인화폼 -->
+		<script type="text/javascript" src="/resources/js/main/AjaxForCenterMyDesk.js?ver=20150118"></script>					
+			<!-- 개인화폼 (메일함) -->
+			<!-- 개인화폼 (게시판) -->
+			<script type="text/javascript">
+		var rollingDiv = null;
+		var _gRollingIntval='';
+	
+		j$(document).ready(function () {
+					
+		   	// ------------------------------------------
+		   	// 메인화면의 경우만 동작
+		   	// ------------------------------------------
+		   	
+					// MyDesk 초기화
+					fnSetCustomFormBaseURL('/');
+				
+227
+	fnSetCustomFormCurrentSite('ne');
+				
+					// 개인화폼 (메일함) 조회
+					
+					
+					// 개인화폼 (게시판) 조회
+					
+			   		// 한게임 계열 Tension 조회 (Paging 방식)
+					
+									fnAjaxTensionData("/ne/pagelet/tensionData");
+								
+			   	
+				// 팝업공지 조회
+				fnAjaxPopupArticle("/ne/pagelet/popupArticle", "/ne/board/noticePopup/");
+			
+	
+		   	// 사원정보 오른쪽 버튼 기능
+		   	j$('.quick').QuickConnect();
+		});	
+	</script>
+	
+	
+</body>
+</html>
