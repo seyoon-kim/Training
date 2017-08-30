@@ -1,5 +1,7 @@
 Charles & Fiddler
-=============== 
+===============
+
+(# 본 설명과 실습은 Fiddler를 이용하였습니다.)
 
 ### 도구 소개
 
@@ -94,7 +96,4 @@ Charles & Fiddler
 6. AutoResponder 탭 하단에서 로컬에 변경하고자 하는 파일의 경로 지정후 Save
 7. 해당페이지 리프레쉬 
 
-
-
-## 참고자료
-- <a href="https://msdn.microsoft.com/ko-kr/library/gg699336(v=vs.85).aspx">IE</a>
+<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/charlesAndFiddler/img/exam01.JPG"></img>
