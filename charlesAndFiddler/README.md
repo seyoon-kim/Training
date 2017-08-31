@@ -81,12 +81,13 @@ Charles & Fiddler
 - After Response(ALT + F11), HTTP 응답이 서버에서 돌아와 브라우저에게 가기전에 Response를 조작할 수 있다.
 - Disabled(SHIFT + F11), 기본상태
 
+- - -
 
 ### 실습예제
 
 #### 1. Whatsup main site logo 바꾸기
 
-### 해결방법
+#### 해결방법
 
 1. 캡처링 시작
 2. 해당페이지 열기
@@ -96,4 +97,57 @@ Charles & Fiddler
 6. AutoResponder 탭 하단에서 로컬에 변경하고자 하는 파일의 경로 지정후 Save
 7. 해당페이지 리프레쉬 
 
+(#주의. 위과정 도중 캡쳐링을 도중에 해제한다면 원하는 결과 페이지가 안나올 수 있다.)
+
 <img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/charlesAndFiddler/img/exam01.JPG"></img>
+
+
+#### 2. Whatsup main site alert 띄우기
+
+#### 해결방법
+
+1. 왓츠업 홈페이지의 메인 html파일 하단 부분에 script태그안에 alert 구문을 작성하여 메인 화면 로딩시 시스템 경고창이 뜨도록 하였다.
+
+<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/charlesAndFiddler/img/exam02.JPG"></img>
+
+#### 3. whatsup의 모든 js파일을 로컬의 한 파일로 변조해본다.
+
+#### 문제점
+
+1. Filter기능을 통하여 js파일만 나오도록 하였으나 하나의 파일로 변조하는 것이 정확히 어떠한 의도인지 문제의 의도를 정확히 파악하지 못하여 진행하지 못하였다
+2. 왓츠업의 js파일만 좌측 창에서 확인하였으나 HTTP Status code 304 나와 우측 응답창의 신택스 탭에 해당코드가 나오지 않았다.
+
+#### 해결방법
+1. 2번문제와 동일하게 js를 불러오는 HTML문서에서 script태그를 통해 js를 불러오지 않고 해당 태그는 주석 처리후 그바로 아래 인라인 스크립트 태그를 이용하여
+원래 불러오던 소스 코드를 작성해 둠으로서 하나의 파일안에 기존에 불러오던 JavaScript를 하나로 합쳐 두었다.
+2. 304 코드는 이미 해당파일이 캐싱되어있고 서버에 새로 요청한 파일과 다르지 않다 라는 뜻이다. 이에 따라 브라우저의 인터넷 사용기록 삭제한 후 fiddler의 Rules > Performance > Disable Caching을 체크하여 문제를 해결하였다. 
+
+
+#### 4. 모바일로 2번 동작 해보기
+
+#### 문제점
+
+1. 사내 네트워크 문제와 관련될 수도 있으니 일단 보류.
+
+#### 해결방법
+
+##### PC 설정
+1. Tools > Fiddler Options > Connections 클릭
+2. Allow remote computers to connect. 체크
+3. Fiddler Restart
+4. Fiddler가 설치된 PC의 IP 확인
+
+##### Iphone 설정
+1. Settings > Wi-Fi.
+2. 선택되어진 와이파이의 옆에 아이콘 클릭
+3. 하단 HTTP 프록시 탭에서 수동으로 이동
+4. 서버에 PC IP주소 입력, 포트에는 8888입력
+
+##### HTTPS 설정
+1. Certificate Maker plugin 다운 및 설치
+2. Fiddler Restart
+3. option > HTTPS > Decrypt HTTPs Traffic 체크
+4. 아이폰 http://ipv4.fiddler:8888/ 이동
+5. 웹페이지 하단의  FiddlerRoot certificate. 설치
+6. FiddlerRoot.cer file. open
+7. 인스톨
