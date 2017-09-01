@@ -47,14 +47,14 @@ Karma Test Runner
 
 - 테스트 실패 화면
 
-<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/karmatestrunner/img/img01.JPG"></img>
+<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/karmatestrunner/img/img02.JPG"></img>
 
 - 테스트 실패한 spec, 기대값과 결과값이 다르다.
 
-<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/karmatestrunner/img/img01.JPG"></img>
+<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/karmatestrunner/img/img03.JPG"></img>
 
 - 기대값 수정후 테스트 성공화면
 
-<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/karmatestrunner/img/img01.JPG"></img>
+<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/karmatestrunner/img/img04.JPG"></img>
 
 - 크롬 개발자 도구 화면
