@@ -947,3 +947,111 @@ describe("Manually ticking the Jasmine Clock", function() {
 </code></pre>
 
 - clock 함수로 setTimeout, setInterval 함수와 같이 일정시간 이후에 작동되는 함수들이 제대로 실행되었는지 확인가능
+
+- - -
+
+Jasmine ajax.js
+===============
+
+### Jasmine ajax 테스트
+
+#### 사용순서
+1. Test responses를 작성한다.
+2. mock-ajax.js을 설치한다
+3. ajax 요청코드를 트리거한다
+4. 각 요청의 응답을 정의한다.
+5. ajax 요청을 살펴보고 기대값을 설정
+
+<pre><code>
+describe("mocking ajax", function() {
+	describe("suite wide usage", function() {
+ 		beforeEach(function() {
+      		jasmine.Ajax.install();
+    	});
+    	afterEach(function() {
+      		jasmine.Ajax.uninstall();
+    	});
+    	// 사용하기 전후 ajax install, uninstall
+
+    	it("specifying response when you need it", function() {
+      		var doneFn = jasmine.createSpy("success");
+      		// spy를 설정한다
+
+      		var xhr = new XMLHttpRequest();
+	    	xhr.onreadystatechange = function(args) {
+	        	if (this.readyState == this.DONE) {
+	        		doneFn(this.responseText);
+	        	}
+	    	};
+	    	// 설정한 spy에 응답된 텍스트를 인자로 받는다.
+
+	    	xhr.open("GET", "/some/cool/url");
+    		xhr.send();
+
+    		expect(jasmine.Ajax.requests.mostRecent().url).toBe('/some/cool/url');
+    		// ajax 호출한 최신 url
+    		expect(doneFn).not.toHaveBeenCalled();
+    		// 아직 sucess라는 spy가 호출되지 않았다.
+
+    		jasmine.Ajax.requests.mostRecent().respondWith({
+    			"status": 200,
+    			"contentType": 'text/plain',
+    			"responseText": 'awesome response'
+    		});
+    		// ajax로 호출한다.
+    		// 제일 첫번째 요청을 받는다.
+    		// 응답한 응답텍스트의 콘텐츠 유형을 지정할수 있다.
+
+    		expect(doneFn).toHaveBeenCalledWith('awesome response');
+   		});
+
+   		it("allows responses to be setup ahead of time", function () {
+      		var doneFn = jasmine.createSpy("success");
+      		jasmine.Ajax.stubRequest('/another/url').andReturn({
+        		"responseText": 'immediate response'
+      		});
+      		// stubRequset 곧바로 ajax응답을 요청한다.
+      		// 그리고 응답 결과값을 수정할 수 있다.
+
+      		var xhr = new XMLHttpRequest();
+		    xhr.onreadystatechange = function(args) {
+		    	if (this.readyState == this.DONE) {
+		          doneFn(this.responseText);
+		        }
+		    };
+		    xhr.open("GET", "/another/url");
+    		xhr.send();
+
+    		expect(doneFn).toHaveBeenCalledWith('immediate response');
+    	});
+
+    	it("allows use in a single spec", function() {
+		    var doneFn = jasmine.createSpy('success');
+		    jasmine.Ajax.withMock(function() {
+		      var xhr = new XMLHttpRequest();
+		      xhr.onreadystatechange = function(args) {
+		        if (this.readyState == this.DONE) {
+		          doneFn(this.responseText);
+		        }
+		      };
+
+		      xhr.open("GET", "/some/cool/url");
+		      xhr.send();
+
+		      expect(doneFn).not.toHaveBeenCalled();
+
+		      jasmine.Ajax.requests.mostRecent().respondWith({
+		        "status": 200,
+		        "responseText": 'in spec response'
+		      });
+
+		      expect(doneFn).toHaveBeenCalledWith('in spec response');
+		    });
+		});
+
+		// single spec안에서 ajax를 사용하는 경우 withMock함수를 사용하라.
+
+
+   	});
+
+</code></pre>
