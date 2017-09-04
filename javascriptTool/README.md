@@ -184,6 +184,23 @@ module: {
 
 -test에 자바스크립트 확장자를 갖는 파일을 정규표현식으로 지정했다. node_moudles 폴더는 패키지 폴더이므로 제외하기 위해서 exclude에 설정한다. use에 로더를 설정하는데 babel-loader 를 추가했다.
 
+
+##### karma-webpack
+
+- karma
+<pre><code>
+webpack: webpackConfig,
+
+preprocessors: {
+  './src/*.js': ['webpack'],
+  './test/*.js': ['webpack']
+},
+</code></pre>
+
+- npm i karma-webpack --save-dev 설치 (node_modules/.bin/karma start)
+- 테스트 하는 파일, 테스트 되어지는 소스파일 에서 commonJS 문법을 사용하면 되지 않는다. 그 이유는 commonJS를 해석해줄 것이 없기 떄문이다. 따라서 preprocessors 설정에서 webpack을 설정 해줌으로서 karma가 테스트 하기 전에 webpack으로 commonJS문법을 해석하여 번들링 해줌으로써 사용할 수 있다.
+
+
 ## 참고자료
 
 - <a href="https://www.zerocho.com/category/Webpack/post/58aa916d745ca90018e5301d">https://www.zerocho.com/category/Webpack/post/58aa916d745ca90018e5301d</a>
@@ -251,9 +268,6 @@ define(["package/lib"], function (lib) {
 <pre><code>
 // 모듈 전체를 export
 module.exports = module;
-
-// 모든 속성을 export
-// (아시는 분 알려주세요)
 
 // 함수를 직접 export
 exports.moduleFunc = function() {};
