@@ -274,13 +274,52 @@ module.moduleFunc
 
 ##### require 실행시 경로를 찾아가는 우선순위
 
+- Y 라는 경로에 있는 모듈에서 require(X) 를 호출했을 경우
+  1. 만약 X 가 코어 모듈인 경우, 코어 모듈을 리턴한다. 끝.
+  2. 만약 X 가 './' 또는 '/' 또는 '../' 로 시작할 경우
+    a. LOAD_AS_FILE(Y + X) 를 시도한다.
+	  b. LOAD_AS_DIRECTORY(Y + X) 를 시도한다.
+  3. LOAD_NODE_MODULES(X, dirname(Y)) 를 시도한다.
+  4. 여기까지 해도 없으면 "not found" 를 던진다.
+
+- LOAD_AS_FILE(X)
+  1. 만약 X 가 파일이라면, X 를 자바스크립트 텍스트로 불러온다. 끝.
+  2. 만약 X.js 가 파일이면, X.js 를 자바스크립트 텍스트로 불러온다. 끝.
+  3. 만약 X.json 이 파일이면, X.json 을 자바스크립트 객체로 불러온다. 끝.
+  4. 만약 X.node 가 파일이라면, X.node 를 바이너리로써 추가한다. 끝.
+
+- LOAD_AS_DIRECTORY(X)
+  1. 만약 X 라는 이름의 폴더 아래에 package.json 이란 파일이 있으면,
+    a. X/package.json 파일을 파싱해서, "main" 필드가 있는지 찾는다.
+		b. M = X + 메인 필드
+		c. LOAD_AS_FILE(M) 을 시도한다.
+  2. 만약 X 라는 이름의 폴더 아래에 index.js 이란 파일이 있으면, X/index.js 파일을 자바스크립트 텍스트로 불러온다. 끝.
+  3. 만약 X 라는 이름의 폴더 아래에 index.json 이란 파일이 있으면, X/index.json 파일을 자바스크립트 객체로 불러온다. 끝.
+  4. 만약 X 라는 이름의 폴더 아래에 index.node 란 파일이 있으면, X/index.node 파일을 바이너리로써 추가한다. 끝.
+
+- LOAD_NODE_MODULES(X, START)
+  1. DIRS = NODE_MODULES_PATHS(START)
+  2. DIRS 의 각 DIR 에 대해서,
+    a. LOAD_AS_FILE(DIR/X) 를 시도한다.
+		b. LOAD_AS_DIRECTORY(DIR/X) 를 시도한다.
+
+- NODE_MODULES_PATHS(START)
+  1. PARTS = 전체 경로를 단계별로 분리
+  2. I = PARTS 의 갯수
+  3. while I >= 0,
+    a. 만약 PARTS[I] 가 "node_modules" 이면, I = I - 1 수행 후 CONTINUE
+		b. 아니면 DIR = PARTS[0 .. I] 의 경로를 합친 것 + "node_modules"
+		c. DIRS = DIRS + DIR
+		d. I = I - 1
+  4. DIRS 를 리턴한다.
+
 
 ## 참고자료
 
 - <a href="http://d2.naver.com/helloworld/12864">http://d2.naver.com/helloworld/12864</a>
 - <a href="http://blog.pigno.se/post/157992405313/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%EC%A0%9C%EA%B3%B5%EC%9D%84-%EC%9C%84%ED%95%9C-amd-commonjs-%EA%B7%B8%EB%A6%AC%EA%B3%A0-requirejs-%EC%86%8C%EA%B0%9C">http://blog.pigno.se/post/157992405313/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%AA%A8%EB%93%88-%EC%A0%9C%EA%B3%B5%EC%9D%84-%EC%9C%84%ED%95%9C-amd-commonjs-%EA%B7%B8%EB%A6%AC%EA%B3%A0-requirejs-%EC%86%8C%EA%B0%9C</a>
 - <a href="https://blueshw.github.io/2017/05/16/ES-require-vs-import/">https://blueshw.github.io/2017/05/16/ES-require-vs-import/</a>
-
+- <a href="http://programmingsummaries.tistory.com/346">모듈 로딩 순서</a>
 
 - - -
 
