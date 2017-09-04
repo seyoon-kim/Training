@@ -3,22 +3,19 @@ var Dollar = require("../src/script");
 describe("Dollar", function() {
   var result;
 
-  beforeEach(function(){
+  function testMultiplication(){
+    var five = new Dollar(5);
+    var product = null;
+    it("amount value is 10", function() {
+      product = five.times(2);
+      expect(product.amount).toEqual(10);
+    });
+    it("amount value is 15", function() {
+      product = five.times(3);
+      expect(product.amount).toEqual(15);
+    });
+  }
 
-    var test = {
-      testMultiplication : function(){
-        var five = new Dollar(5);
-        five.times(2);
-        return five.amount;
-      }
-    }
-
-    result = test.testMultiplication();
-
-  });
-
-  it("", function() {
-    expect(result).toEqual(10);
-  });
+  testMultiplication();
 
 });
