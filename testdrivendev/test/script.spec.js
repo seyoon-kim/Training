@@ -19,3 +19,24 @@ describe("Dollar", function() {
   testMultiplication();
 
 });
+
+
+describe("TestEquality", function() {
+  var result;
+
+  function testEquality(){
+    it("5 Dollar is 5 Dollar", function(){
+      result = new Dollar(5).equals(new Dollar(5));
+      expect(result).toBe(true);
+    })
+
+    it("5 Dollar is not 6 Dollar", function(){
+      result = new Dollar(5).equals(new Dollar(6));
+      expect(result).toBe(false);
+    })
+
+  }
+
+  testEquality();
+
+});
