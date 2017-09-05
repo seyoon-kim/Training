@@ -74,14 +74,32 @@ describe("TestEquality", function() {
 describe("TestCurrency", function() {
   var result;
 
-  function TestCurrency(){
+  function testCurrency(){
     it("Money.dollar currency", function(){
-      expect(Money.dollar(1).currency()).toEqual("USD");
+      expect(Money.dollar(1).getCurrency()).toEqual("USD");
     })
 
     it("Money.franc currency", function(){
-      expect(Money.franc(1).currency()).toEqual("CHF");
+      expect(Money.franc(1).getCurrency()).toEqual("CHF");
     })
   }
 
+  testCurrency();
+
+});
+
+describe("TestDifferentClassEquality", function() {
+  var result;
+
+  function testDifferentClassEquality(){
+    it("new Money(10, 'CHF') is new Franc(10, 'CHF'))", function(){
+      expect(new Money(10, "CHF").equals(new Franc(10, "CHF"))).toBe(true);
+    })
+
+    it("new Money(10, 'USD') is new Dollar(10, 'USD'))", function(){
+      expect(new Money(10, "USD").equals(new Dollar(10, "USD"))).toBe(true);
+    })
+  }
+
+  testDifferentClassEquality();
 });
