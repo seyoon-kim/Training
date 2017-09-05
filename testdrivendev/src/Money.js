@@ -1,5 +1,6 @@
-function Money(){
-  this.amount;
+function Money(amount, currency){
+  this.amount = amount;
+  this.currency = currency;
 }
 
 /*

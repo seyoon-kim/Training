@@ -8,10 +8,10 @@ describe("Dollar testMultiplication", function() {
   function testMultiplication(){
     var five = Money.dollar(5);
     it("Result object of Money.dollar(5).times(2) equals Money.dollar(10)", function() {
-      expect(five.times(2).setAmount()).toEqual(Money.dollar(10).setAmount());
+      expect(five.times(2).getAmount()).toEqual(Money.dollar(10).getAmount());
     });
     it("Result object of Money.dollar(5).times(3) equals Money.dollar(15)", function() {
-      expect(five.times(3).setAmount()).toEqual(Money.dollar(15).setAmount());
+      expect(five.times(3).getAmount()).toEqual(Money.dollar(15).getAmount());
     });
   }
 
@@ -25,10 +25,10 @@ describe("Franc testMultiplication", function() {
   function testMultiplication(){
     var five = Money.franc(5);
     it("Result object of Money.dollar(5).times(2) equals Money.dollar(10)", function() {
-      expect(five.times(2).setAmount()).toEqual(Money.franc(10).setAmount());
+      expect(five.times(2).getAmount()).toEqual(Money.franc(10).getAmount());
     });
     it("Result object of Money.dollar(5).times(3) equals Money.dollar(15)", function() {
-      expect(five.times(3).setAmount()).toEqual(Money.franc(15).setAmount());
+      expect(five.times(3).getAmount()).toEqual(Money.franc(15).getAmount());
     });
   }
 
@@ -68,5 +68,20 @@ describe("TestEquality", function() {
   }
 
   testEquality();
+
+});
+
+describe("TestCurrency", function() {
+  var result;
+
+  function TestCurrency(){
+    it("Money.dollar currency", function(){
+      expect(Money.dollar(1).currency()).toEqual("USD");
+    })
+
+    it("Money.franc currency", function(){
+      expect(Money.franc(1).currency()).toEqual("CHF");
+    })
+  }
 
 });
