@@ -5,14 +5,11 @@ describe("Dollar", function() {
 
   function testMultiplication(){
     var five = new Dollar(5);
-    var product = null;
-    it("amount value is 10", function() {
-      product = five.times(2);
-      expect(product.amount).toEqual(10);
+    it("Result object of new Dollar(5).times(2) equals new Dollar(10)", function() {
+      expect(five.times(2).setAmount()).toEqual(new Dollar(10).setAmount());
     });
-    it("amount value is 15", function() {
-      product = five.times(3);
-      expect(product.amount).toEqual(15);
+    it("Result object of new Dollar(5).times(3) equals new Dollar(15)", function() {
+      expect(five.times(3).setAmount()).toEqual(new Dollar(15).setAmount());
     });
   }
 

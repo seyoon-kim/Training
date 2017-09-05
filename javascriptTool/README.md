@@ -94,7 +94,7 @@ module.exports = {
 1. eslint [파일명|디렉토리] --fix 사소한에러 수정
 
 #### eslint 동작결과
-<img width="" height="" src=""></img>
+<img width="" height="" src="https://github.com/seyoon-kim/Training/blob/master/javascriptTool/eslint/img/eslint01.JPG"></img>
 
 
 ## 참고자료
