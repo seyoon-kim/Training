@@ -15,6 +15,10 @@ var Dollar = function(amount){
 
 }
 
+Money.dollar = function(amount){
+  return new Dollar(amount);
+}
+
 // Money Class를 상속
 Dollar.prototype = lib.objectCreate(Money.prototype);
 Dollar.prototype.constructor = Dollar;

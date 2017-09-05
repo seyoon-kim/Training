@@ -14,6 +14,10 @@ var Franc = function(amount){
   }
 }
 
+Money.franc = function(amount){
+  return new Franc(amount);
+}
+
 // Money Class를 상속
 Franc.prototype = lib.objectCreate(Money.prototype);
 Franc.prototype.constructor = Franc;
