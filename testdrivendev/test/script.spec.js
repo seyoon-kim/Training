@@ -59,6 +59,11 @@ describe("TestEquality", function() {
       result = new Franc(5).equals(new Franc(6));
       expect(result).toBe(false);
     })
+
+    it("5 Dollar is not 5 Franc", function(){
+      result = new Dollar(5).equals(new Franc(5));
+      expect(result).toBe(false);
+    })
   }
 
   testEquality();
