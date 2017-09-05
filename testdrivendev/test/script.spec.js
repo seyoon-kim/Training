@@ -1,6 +1,7 @@
-var Dollar = require("../src/script");
+var Dollar = require("../src/Dollar");
+var Franc = require("../src/Franc");
 
-describe("Dollar", function() {
+describe("Dollar testMultiplication", function() {
   var result;
 
   function testMultiplication(){
@@ -10,6 +11,23 @@ describe("Dollar", function() {
     });
     it("Result object of new Dollar(5).times(3) equals new Dollar(15)", function() {
       expect(five.times(3).setAmount()).toEqual(new Dollar(15).setAmount());
+    });
+  }
+
+  testMultiplication();
+
+});
+
+describe("Franc testMultiplication", function() {
+  var result;
+
+  function testMultiplication(){
+    var five = new Franc(5);
+    it("Result object of new Dollar(5).times(2) equals new Dollar(10)", function() {
+      expect(five.times(2).setAmount()).toEqual(new Franc(10).setAmount());
+    });
+    it("Result object of new Dollar(5).times(3) equals new Dollar(15)", function() {
+      expect(five.times(3).setAmount()).toEqual(new Franc(15).setAmount());
     });
   }
 
