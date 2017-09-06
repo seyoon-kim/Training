@@ -7,6 +7,14 @@ function Money(amount, currency){
   }
 }
 
+Money.dollar = function(amount){
+  return new Money(amount, "USD");
+}
+
+Money.franc = function(amount){
+  return new Money(amount, "CHF");
+}
+
 /*
 * 1. 인자로 받은 object의 amount값과 기존의 amount값을 비교하여 boolean값 리턴
 * 2. object.constructor 인스턴스의 생성자확인 인스턴스.constructor로 확인 할 수 있다.
