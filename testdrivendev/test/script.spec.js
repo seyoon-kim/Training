@@ -180,6 +180,44 @@ describe("Test Mixed Addition", function(){
     bank.addRate("CHF", "USD", 2);
     var result = bank.reduce(fiveBucks.plus(tenFranc), "USD");
     expect(result).equalObject(Money.dollar(10));
-  })
+  });
 
+})
+/*
+* 1. Sum 객체의 augend 값을 계속 추가하는 plus 함수구현
+* 2. this.objAugend의 값이 Sum 객체이면 Sum.reduce() 재귀 호출
+* 3. this.objAugend의 값이 Money 객체이면 Money.reduce() 환율 적용하여 amount값 계산하여 Money 객체 생성
+*/
+describe("Test Sum Plus Money", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("10 franc exchange to dollar and add 5 dollar is 10 dollar", function(){
+    var fiveBucks = Money.dollar(5);
+    var tenFrancs = Money.franc(10);
+    var bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    var sum = new Sum(fiveBucks, tenFrancs).plus(fiveBucks);
+    var result = bank.reduce(sum, "USD");
+    expect(result).equalObject(Money.dollar(15));
+  });
+})
+/*
+* 1. Sum 클래스에서 Sum 객체의 augend, tenFrancs 각각의 해당하는 숫자를 곱해주는 함수 생성
+*/
+describe("Test Sum Times", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("Each Property of Sum Object mutiply", function(){
+    var fiveBucks = Money.dollar(5);
+    var tenFrancs = Money.franc(10);
+    var bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    var sum = new Sum(fiveBucks, tenFrancs).times(2);
+    var result = bank.reduce(sum, "USD");
+    expect(result).equalObject(Money.dollar(20));
+  });
 })
