@@ -161,3 +161,25 @@ describe("Test Indentity Rate", function(){
   })
 
 })
+/*
+* 1. 서로 다른 통화를 더한 값이 같은지 확인하는 테스트
+* 2. Bank.reduce() -> Sum.reduce() Bank 객체와 환전하고싶은 단위 인자로 받는다. (Bank를 거치는 이유는 Bank의 객체를 받아서 붙어있는 함수를 사용하기 위해서)
+* 3. Sum 객체의 augend의 값 5 dollar 객체, addend값 10 franc 객체의 값을 Money.reduce()를 통해 각각 환전할 단위로 바꾼다.
+* 4. Money.reduce() 함수안에 Bank.rate()에서 각각의 환율을 반환하고 반환된 환율로 amount값을 계산하고 모든 amount의값을 합산한뒤 Money 객체를 생선한다.
+*/
+
+describe("Test Mixed Addition", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("10 franc exchange to dollar and add 5 dollar is 10 dollar", function(){
+    var fiveBucks = Money.dollar(5);
+    var tenFranc = Money.franc(10);
+    var bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    var result = bank.reduce(fiveBucks.plus(tenFranc), "USD");
+    expect(result).equalObject(Money.dollar(10));
+  })
+
+})

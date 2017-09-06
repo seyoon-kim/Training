@@ -28,8 +28,6 @@ Money.prototype.times = function(multiplier) {
   return new Money(result, this.currency);
 }
 
-
-
 Money.prototype.plus = function(objAddend){
   return new Sum(this, objAddend);
 }
@@ -39,15 +37,9 @@ Money.prototype.reduce = function(objBank, to){
   return new Money(this.amount / rate, to);
 }
 
-
-
-
 Sum.prototype.reduce = function(objBank, to){
-  var amount = this.objAugend.amount + this.objAddend.amount;
+  var amount = this.objAugend.reduce(objBank, to).amount + this.objAddend.reduce(objBank, to).amount;
   return new Money(amount, to);
 }
-
-
-
 
 module.exports = Money;
