@@ -1,10 +1,6 @@
 function Money(amount, currency){
   this.amount = amount;
   this.currency = currency;
-
-  this.getAmount = function(){
-    return this.amount;
-  }
 }
 
 Money.dollar = function(amount){
@@ -22,19 +18,19 @@ Money.franc = function(amount){
 */
 
 Money.prototype.equals = function(object){
-  var thisAmount = this.getAmount();
-  var objectAmount = object.getAmount();
-  return (thisAmount === objectAmount && this.getCurrency() === object.getCurrency());
+  var thisAmount = this.amount;
+  var objectAmount = object.amount;
+  return (thisAmount === objectAmount && this.currency === object.currency);
 }
 
 // 갯수를 받아서 기존의 amount 값과 곱하여 만들어진 결과값을 amount 값으로 갖는 새로운 Money 인스턴스 생성
 Money.prototype.times = function(multiplier) {
-  var result = this.getAmount() * multiplier;
-  return new Money(result, this.getCurrency());
+  var result = this.amount * multiplier;
+  return new Money(result, this.currency);
 }
 
-Money.prototype.getCurrency = function(){
-  return this.currency;
+Money.prototype.plus = function(object){
+  return new Money(this.amount + object.amount, this.currency);
 }
 
 module.exports = Money;
