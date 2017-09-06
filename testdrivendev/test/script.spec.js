@@ -1,9 +1,10 @@
 var Money = require("../src/Money");
 var Bank = require("../src/Bank");
+var Sum = require("../src/Sum");
 
 // 비교하는 object 들이 동일한 프로퍼값을 가지고 있으면 동일하다고 판단.
 var equalObjectMatcher = {
-  equalMoneyObject: function() {
+  equalObject: function() {
     return {
       compare: function(actual, expected){
         return {
@@ -23,10 +24,10 @@ describe("Dollar testMultiplication", function() {
   });
 
   it("Result object of Money.dollar(5).times(2) equals Money.dollar(10)", function() {
-    expect(five.times(2)).equalMoneyObject(Money.dollar(10));
+    expect(five.times(2)).equalObject(Money.dollar(10));
   });
   it("Result object of Money.dollar(5).times(3) equals Money.dollar(15)", function() {
-    expect(five.times(3)).equalMoneyObject(Money.dollar(15));
+    expect(five.times(3)).equalObject(Money.dollar(15));
   });
 });
 
@@ -72,7 +73,61 @@ describe("Test Simple Addition", function(){
     var sum = five.plus(five);
     var bank = new Bank();
     var reduced = bank.reduce(sum, "USD");
-    expect(reduced).equalMoneyObject(Money.dollar(10));
+    expect(reduced).equalObject(Money.dollar(10));
   });
+
+});
+
+/*
+* 1. 5 dollar 객체, 5 dollar 객체의 합은,  (augend =  5 dollar) + (addend =  5 dollar)
+*/
+
+describe("Test Plus Returns Sum", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("Augend is dollar 5, Addend is dollar 5", function(){
+    var five = Money.dollar(5);
+    var sum = five.plus(five);
+    expect(sum.objAugend).equalObject(five);
+    expect(sum.objAddend).equalObject(five);
+  });
+
+});
+
+/*
+* 1. 3 dollar 객체, 4 dollar 객체의 합은,  (augend =  3 dollar) + (addend = 4 dollar)
+* 2. (augend, 3 dollar) + (addend, 4 dollar)을 bank.reduce()인자로 넣으면 7 dollar 객체로 변환
+*/
+
+describe("Test Reduce Sum", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("dollar 3 sum dollar 4 and exchange USD and is Dollar 7", function(){
+    var sum = new Sum(Money.dollar(3), Money.dollar(4));
+    var bank = new Bank();
+    var result = bank.reduce(sum, "USD");
+    expect(result).equalObject(Money.dollar(7));
+  })
+
+});
+
+/*
+* 1. 1 dollar bank.reduce() 인자로 들어가면 1 dollar가 맞는지 확인
+*/
+
+describe("Test Reduce Money", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("dollar 1 exchange USD is dollar 1", function(){
+    var bank = new Bank();
+    var result = bank.reduce(Money.dollar(1), "USD");
+    expect(result).equalObject(Money.dollar(1));
+  })
 
 });
