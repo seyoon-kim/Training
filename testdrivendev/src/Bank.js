@@ -1,19 +1,35 @@
 var Money = require('./Money');
+var Pair = require('./Pair');
+
+var rates = [];
+
 function Bank(){
 }
 
 Bank.prototype.reduce = function(objSum, to){
-  // var amount = objSum.augend.amount + objSum.addend.amount;
-  // return Money.dollar(amount, to);
+  return objSum.reduce(this, to);
+}
 
-  // if(objSum instanceof Money){
-  //   // return objSum;
-  //   return objSum.reduce(to);
-  // }
-  //
-  // var sum = objSum;
-  // return sum.reduce(to);
-  return objSum.reduce(to);
+Bank.prototype.rate = function(from, to){
+  if(from === to){
+    return 1;
+  }
+  var rate;
+  var i = 0;
+  var ratesLength = rates.length;
+  for(i; i < ratesLength; i++){
+    if(rates[i].pair.from === from && rates[i].pair.to === to){
+      rate = rates[i].rate;
+    }
+  }
+  return rate;
+}
+
+Bank.prototype.addRate = function(from, to, rate){
+  rates.push({
+    pair : new Pair(from, to),
+    rate : rate
+  });
 }
 
 module.exports = Bank;

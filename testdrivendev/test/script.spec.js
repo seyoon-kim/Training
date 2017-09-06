@@ -131,3 +131,33 @@ describe("Test Reduce Money", function(){
   })
 
 });
+/*
+* 1. bank.addRate()함수는 인자로 from, to 화폐단위와 환율을 받은 뒤 rate라는 배열에 값을 보관한다.
+* 2. bank.reduce() 함수를 통해서 money.reduce()함수를 호출하고 그안에서 bank.rate()를 통해 from, to 값으로 rate 배열을 값을 찾은 뒤 해당 객체의 rate값을 반환한다.
+* 3. 반환된 rate값과 amount를 사용하여 새로운 dollar 객체를 생성한다.
+*/
+
+describe("Test Reduce Money Different Currency", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("2 franc exchange 1 dollar", function(){
+    var bank = new Bank();
+    bank.addRate("CHF", "USD", 2);
+    var result = bank.reduce(Money.franc(2), "USD");
+    expect(result).equalObject(Money.dollar(1));
+  })
+
+});
+
+describe("Test Indentity Rate", function(){
+  beforeEach(function() {
+    jasmine.addMatchers(equalObjectMatcher);
+  });
+
+  it("rate value of dollar exchange dollar ", function(){
+    expect(new Bank().rate("USD", "USD")).toEqual(1);
+  })
+
+})
