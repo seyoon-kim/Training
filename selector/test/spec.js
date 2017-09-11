@@ -11,27 +11,32 @@ Domutil.querySelector = function(selectors){
 
 // selector의 인자를 나눠 배열로 담는다.
 
+/*
+* arrSeletor, 무엇을 찾아야 하는지 알려주는 값
+* from, 찾아야 하는 대상이 되는 엘리멘트
+* founded, from 중에서 arrSeletor의 원소에 해당하는 결과를 저장하는 값
+*/
+
   var arrSeletor = selectors.split(" ");
   var founded = [];
+  var from = [document];
 
-// div#cont div, span
-  // var result01 = findElementsOfSelector(document, arrSeletor[0]);
+  var i = 0;
+  var j = 0;
+  var arrSeletorLength = arrSeletor.length;
+  var fromLength = from.length;
 
-  // var result02 = findElementsOfSelector(result01[0], arrSeletor[1]);
-  // var result03 = findElementsOfSelector(result02[0], arrSeletor[2]);
-  //
-  // return result03
+  for(i; i < arrSeletorLength; i++){
+    for(j; j < fromLength; j++){
+      founded = founded.concat(findElementsOfSelector(from[j], arrSeletor[i]));
+    }
+    from = founded;
+    founded = [];
+  }
 
-// div.main div span
-  var result01 = findElementsOfSelector(document, arrSeletor[0]);
+  result.push(founded[0]);
 
-  var result02 = findElementsOfSelector(result01[0], arrSeletor[1]);
-  var result03 = findElementsOfSelector(result01[1], arrSeletor[1]);
-
-  var result04 = findElementsOfSelector(result02[0], arrSeletor[2]);
-  var result05 = findElementsOfSelector(result03[0], arrSeletor[2]);
-
-  return result04;
+  return result;
 }
 
 /*
@@ -113,7 +118,7 @@ describe("Domutil.querySelector function should be return array ", function(){
 
 // 셀렉터가 세 개인 경우, .main div span의 해당하는 엘레멘트 배열을 반환
 
-  fit("if selector is (.className tagName tagName), should be return array .className tagName tagName element", function(){
+  it("if selector is (.className tagName tagName), should be return array .className tagName tagName element", function(){
     document.body.innerHTML = '<div id="cont" class="main"><div><span>no main</span></div></div> <div class="main"><div><span>.main</span></div></div>';
     expect(Domutil.querySelector(".main div span").length).toBe(1);
   });
