@@ -4,34 +4,42 @@ Domutil.querySelector = function(selectors){
 /*
 * 안자로 받은 selectors의 값이 비었을때 빈배열을 반환한다.
 */
+  var result;
   if(!selectors){
     return [];
   }
+
+  result = findElementsOfSelector(selectors);
+
+  return result;
+}
+
+/*
+* selector의 앞에 문자열에 따라 id, class, tagName을 구별하여 해당하는 엘리멘트들의 배열을 반환하는 함수
+*/
+
+function findElementsOfSelector(selectors){
+  if(/^\./g.test(selectors)){
 /*
 * 인자로 받은 selectors는 .className이므로 앞에 '.'문자를 제외해야 getElementsByClassName()의 인자로 사용할 수 있다.
 */
-  // selectors = selectors.replace(/\./g, "");
-  // var result = document.getElementsByClassName(selectors);
-/*
-* HTML Collection은 유사배열이다. 유사배열을 배열로 바꾸기
-*/
-  // result = Array.prototype.slice.call(result);
-
+  selectors = selectors.replace(/\./g, "");
+  result = document.getElementsByClassName(selectors);
+  result = Array.prototype.slice.call(result);
+  }else if(/^\#/g.test(selectors)){
 /*
 * 인자로 받은 selectors는 #idName이므로 앞에 '#'문자를 제외해야 getElementById()의 인자로 사용할 수 있다.
 */
-
-  // selectors = selectors.replace(/\#/g, "");
-  // var result = document.getElementById(selectors);
-  // result = [result];
-
+  selectors = selectors.replace(/\#/g, "");
+  result = document.getElementById(selectors);
+  result = [result];
+  }else{
 /*
 * 인자로 받은 selectors는 tagName이므로 getElementsByTagName()을 사용한다.
 */
-
-  var result = document.getElementsByTagName(selectors);
+  result = document.getElementsByTagName(selectors);
   result = Array.prototype.slice.call(result);
-
+  }
   return result;
 }
 
@@ -62,7 +70,7 @@ describe("Domutil.querySelector function should be return array ", function(){
 /*
 * 셀렉터가 tagName인 경우, 해당 tagName을 가지고 있는 엘리멘트 배열을 반환
 */
-  fit("if selector is tagName, should be return array tagName element", function(){
+  it("if selector is tagName, should be return array tagName element", function(){
     document.body.innerHTML = '<div class="main">main</div><div id="cont">no main</div>';
     expect(Domutil.querySelector("div").length).toBe(2);
   });
