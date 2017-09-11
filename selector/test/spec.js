@@ -21,9 +21,16 @@ Domutil.querySelector = function(selectors){
 * 인자로 받은 selectors는 #idName이므로 앞에 '#'문자를 제외해야 getElementById()의 인자로 사용할 수 있다.
 */
 
-  selectors = selectors.replace(/\#/g, "");
-  var result = document.getElementById(selectors);
-  result = [result];
+  // selectors = selectors.replace(/\#/g, "");
+  // var result = document.getElementById(selectors);
+  // result = [result];
+
+/*
+* 인자로 받은 selectors는 tagName이므로 getElementsByTagName()을 사용한다.
+*/
+
+  var result = document.getElementsByTagName(selectors);
+  result = Array.prototype.slice.call(result);
 
   return result;
 }
@@ -51,5 +58,14 @@ describe("Domutil.querySelector function should be return array ", function(){
     document.body.innerHTML = '<div class="main">main</div><div id="cont">no main</div>';
     expect(Domutil.querySelector("#cont").length).toBe(1);
   });
+
+/*
+* 셀렉터가 tagName인 경우, 해당 tagName을 가지고 있는 엘리멘트 배열을 반환
+*/
+  fit("if selector is tagName, should be return array tagName element", function(){
+    document.body.innerHTML = '<div class="main">main</div><div id="cont">no main</div>';
+    expect(Domutil.querySelector("div").length).toBe(2);
+  });
+
 
 });
