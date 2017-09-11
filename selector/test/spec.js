@@ -10,12 +10,20 @@ Domutil.querySelector = function(selectors){
 /*
 * 인자로 받은 selectors는 .className이므로 앞에 '.'문자를 제외해야 getElementsByClassName()의 인자로 사용할 수 있다.
 */
-  selectors = selectors.replace(/\./g, "");
-  var result = document.getElementsByClassName(selectors);
+  // selectors = selectors.replace(/\./g, "");
+  // var result = document.getElementsByClassName(selectors);
 /*
 * HTML Collection은 유사배열이다. 유사배열을 배열로 바꾸기
 */
-  result = Array.prototype.slice.call(result);
+  // result = Array.prototype.slice.call(result);
+
+/*
+* 인자로 받은 selectors는 #idName이므로 앞에 '#'문자를 제외해야 getElementById()의 인자로 사용할 수 있다.
+*/
+
+  selectors = selectors.replace(/\#/g, "");
+  var result = document.getElementById(selectors);
+  result = [result];
 
   return result;
 }
@@ -29,11 +37,19 @@ describe("Domutil.querySelector function should be return array ", function(){
   });
 
 /*
-* 셀렉터가 class인 경우, 해당 class를 가지고 있는 엘리멘트를 반환
+* 셀렉터가 class인 경우, 해당 class를 가지고 있는 엘리멘트 배열을 반환
 */
   it("if selector is class, should be return array class element", function(){
     document.body.innerHTML = '<div class="main">main</div><div>no main</div>';
     expect(Domutil.querySelector(".main").length).toBe(1);
+  });
+
+/*
+* 셀렉터가 id인 경우, 해당 id를 가지고 있는 엘리멘트 배열을 반환
+*/
+  it("if selector is id, should be return array id element", function(){
+    document.body.innerHTML = '<div class="main">main</div><div id="cont">no main</div>';
+    expect(Domutil.querySelector("#cont").length).toBe(1);
   });
 
 });
