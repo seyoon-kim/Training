@@ -8,36 +8,47 @@ Domutil.querySelector = function(selectors){
   if(!selectors){
     return [];
   }
+/*
+* selector의 인자를 나눠 배열로 담는다.
+*/
+  var arrSeletor = selectors.split(" ");
 
-  result = findElementsOfSelector(selectors);
+/*
+* 1. 첫번째의 rootEle는 document으로 첫번째 셀렉터의 값으로 해당하는 요소들을 찾아 반환한다.
+* 2. 두번째의 rootEle는 전에 찾은 결과값으로써 두번째의 셀렉터의 값으로 해당하는 요소들을 찾아 반환한다.
+*/
+
+  result = findElementsOfSelector(document, arrSeletor[0]);
+  result = findElementsOfSelector(result[1], arrSeletor[1]);
 
   return result;
 }
 
 /*
-* selector의 앞에 문자열에 따라 id, class, tagName을 구별하여 해당하는 엘리멘트들의 배열을 반환하는 함수
+* 1. selector의 앞에 문자열에 따라 id, class, tagName을 구별하여 해당하는 엘리멘트들의 배열을 반환하는 함수
+* 2. rootEle, selector 두 개의 인자를 받는다. rootEle는 이전에 받은 결과값으로서 해당 값으로 다시 다음번째의 selector 값을 이용하여 값을 찾을때 사용한다.
 */
 
-function findElementsOfSelector(selectors){
+function findElementsOfSelector(rootEle, selectors){
   if(/^\./g.test(selectors)){
 /*
 * 인자로 받은 selectors는 .className이므로 앞에 '.'문자를 제외해야 getElementsByClassName()의 인자로 사용할 수 있다.
 */
   selectors = selectors.replace(/\./g, "");
-  result = document.getElementsByClassName(selectors);
+  result = rootEle.getElementsByClassName(selectors);
   result = Array.prototype.slice.call(result);
   }else if(/^\#/g.test(selectors)){
 /*
 * 인자로 받은 selectors는 #idName이므로 앞에 '#'문자를 제외해야 getElementById()의 인자로 사용할 수 있다.
 */
   selectors = selectors.replace(/\#/g, "");
-  result = document.getElementById(selectors);
+  result = rootEle.getElementById(selectors);
   result = [result];
   }else{
 /*
 * 인자로 받은 selectors는 tagName이므로 getElementsByTagName()을 사용한다.
 */
-  result = document.getElementsByTagName(selectors);
+  result = rootEle.getElementsByTagName(selectors);
   result = Array.prototype.slice.call(result);
   }
   return result;
@@ -73,6 +84,14 @@ describe("Domutil.querySelector function should be return array ", function(){
   it("if selector is tagName, should be return array tagName element", function(){
     document.body.innerHTML = '<div class="main">main</div><div id="cont">no main</div>';
     expect(Domutil.querySelector("div").length).toBe(2);
+  });
+
+/*
+* 셀렉터가 두 개인 경우, .main div의 해당하는 엘레멘트 배열을 반환
+*/
+  fit("if selector is (.className tagName), should be return array .className tagName element", function(){
+    document.body.innerHTML = '<div id="cont" class="main">no main</div><div class="main"><div>.main div</div></div>';
+    expect(Domutil.querySelector(".main div").length).toBe(1);
   });
 
 
