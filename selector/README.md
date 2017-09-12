@@ -19,16 +19,22 @@ SelectorAPI 구현하기
 - domutil.querySelector(".main div span");
 
 <pre><code>
-<div id="cont" class="main">
-  <div>
-    <span>no main</span>
+
+<pre>
+
+  <div id="cont" class="main">
+    <div>
+      <span>no main</span>
+    </div>
   </div>
-</div>
-<div class="main">
-  <div>
-    <span>.main</span>
+
+  <div class="main">
+    <div>
+      <span>.main</span>
+    </div>
   </div>
-</div>
+</pre>
+
 </code></pre>
 
 1. document 엘리멘트 중 class가 main인 엘리멘트를 찾아 배열로 반환한다.
@@ -45,6 +51,38 @@ SelectorAPI 구현하기
 
 
 ### domutil.querySelectorAll()
+
+- domutil.querySelectorAll(".main div span");
+
+<pre><code>
+
+<pre>
+
+  <div id="cont" class="main">
+    <div>
+      <span>no main</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div>
+      <span>.main</span>
+    </div>
+  </div>
+</pre>
+
+</code></pre>
+
+1. document 엘리멘트 중 class가 main인 엘리멘트를 찾아 배열로 반환한다.
+  - input / .main, [document]
+  - output / [div.main, div.main]
+2. [div.main, div.main] 엘리멘트 중 tagName이 div인 엘리멘트를 찾아 배열로 반환한다.
+  - input / div, [div.main, div.main]
+  - output / [div.main div, div.main div]
+2. [div.main div, div.main div] 엘리멘트 중 tagName이 span인 엘리멘트를 찾아 배열로 반환한다.
+  - input / span, [div.main div, div.main div]
+  - output / [div.main div span, div.main div span]
+3. 반환된 [div.main div span, div.main div span] 모두 반환한다.
 
 
 - - -
